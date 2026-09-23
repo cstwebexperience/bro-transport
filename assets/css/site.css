@@ -219,3 +219,16 @@ h1, h2, h3 { color: var(--ink); margin: 0; line-height: 1.2; letter-spacing: -.0
   .end-btns { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Confort la bord */
+.comfort-sec { padding-top: 0; }
+.comfort { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.cf { border: 1px solid var(--line); border-radius: var(--r); padding: 24px 22px; background: #fff; }
+.cf-tag { margin: 0 0 14px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--mut); }
+.cf-ic { font-size: 32px; color: var(--or); display: block; margin-bottom: 10px; }
+.cf h3 { font-size: 21px; font-weight: 700; }
+.cf p:last-child { margin: 8px 0 0; font-size: 15px; }
+.cf-max { background: var(--or); border-color: var(--or); color: #fff; }
+.cf-max .cf-tag { color: rgba(255, 255, 255, .85); }
+.cf-max .cf-ic, .cf-max h3 { color: #fff; }
+@media (max-width: 980px) { .comfort { grid-template-columns: 1fr; } }
