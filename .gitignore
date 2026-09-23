@@ -1,0 +1,4 @@
+src/
+.preview/
+node_modules/
+.vercel
