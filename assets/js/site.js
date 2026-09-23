@@ -39,13 +39,6 @@
     });
   });
 
-  // Bara de jos apare după ce formularul iese din ecran
-  var dock = document.querySelector(".dock");
-  if ("IntersectionObserver" in window) {
-    new IntersectionObserver(function (en) {
-      dock.classList.toggle("on", !en[0].isIntersecting && en[0].boundingClientRect.top < 0);
-    }).observe(form);
-  } else dock.classList.add("on");
 
   function fmtDate(v) { return v ? v.split("-").reverse().join(".") : ""; }
 

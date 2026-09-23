@@ -55,51 +55,76 @@
 
 <main>
 
-  <!-- Hero + căutare traseu -->
+  <!-- Hero -->
   <section class="hero">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap hero-in">
       <h1>Transport de la ușă la ușă între România și Europa</h1>
-      <p class="hero-sub">Persoane, colete și mașini pe platformă · România, Austria, Germania, Olanda, Belgia · plecări zilnice</p>
+      <p class="hero-sub"><b>Austria · Germania · Olanda · Belgia</b> — persoane, colete și mașini. Plecări zilnice.</p>
+
+      <div class="hero-cta">
+        <a class="big big-call" href="tel:+40790752888"><i class="bi bi-telephone-fill"></i><span><small>Sună acum</small>0790 752 888</span></a>
+        <a class="big big-wa" href="https://wa.me/40790752888?text=Bun%C4%83%20ziua!%20A%C8%99%20dori%20o%20ofert%C4%83%20de%20transport." target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i><span><small>Scrie-ne pe</small>WhatsApp</span></a>
+      </div>
+
+      <ul class="perks" aria-label="Ce ai la bord">
+        <li class="perk-max"><i class="bi bi-cup-straw"></i><b>Apă la bord</b></li>
+        <li><i class="bi bi-phone-vibrate"></i><b>Încărcătoare</b></li>
+        <li><i class="bi bi-snow2"></i><b>Aer condiționat</b></li>
+        <li><i class="bi bi-lightbulb"></i><b>Lumini LED</b></li>
+        <li><i class="bi bi-arrows-expand"></i><b>Stai lejer</b></li>
+        <li><i class="bi bi-people-fill"></i><b>Mai ieftin la grup</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Cere preț -->
+  <section class="quote" id="oferta">
+    <div class="wrap">
+      <h2 class="quote-h">Cere preț în 1 minut</h2>
+      <p class="quote-p">Alegi ce trimiți, scrii de unde și până unde, apeși butonul verde. Atât.</p>
 
       <form class="book" id="form" novalidate>
+        <p class="step"><span>1</span> Ce transportăm?</p>
         <div class="book-tabs" role="radiogroup" aria-label="Ce transportăm">
           <label><input type="radio" name="tip" value="Persoane" checked><span><i class="bi bi-people-fill"></i>Persoane</span></label>
           <label><input type="radio" name="tip" value="Colet"><span><i class="bi bi-box-seam-fill"></i>Colet</span></label>
           <label><input type="radio" name="tip" value="Mașină pe platformă"><span><i class="bi bi-car-front-fill"></i>Mașină</span></label>
         </div>
 
+        <p class="step"><span>2</span> De unde și până unde?</p>
         <div class="book-row">
           <div class="fld fld-from">
             <label for="f-de">De unde</label>
-            <input id="f-de" name="de" placeholder="Oraș sau adresă" autocomplete="address-level2">
+            <input id="f-de" name="de" placeholder="ex. București" autocomplete="address-level2">
           </div>
           <button type="button" class="swap" id="swap" aria-label="Inversează traseul"><i class="bi bi-arrow-left-right"></i></button>
           <div class="fld fld-to">
             <label for="f-la">Până unde</label>
-            <input id="f-la" name="la" placeholder="Oraș sau adresă">
+            <input id="f-la" name="la" placeholder="ex. München">
           </div>
           <div class="fld fld-date">
             <label for="f-data">Când</label>
             <input id="f-data" name="data" type="date">
           </div>
           <div class="fld fld-nr" data-for="Persoane">
-            <label for="f-nr">Persoane</label>
+            <label for="f-nr">Câte persoane</label>
             <select id="f-nr" name="nr"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select>
           </div>
-          <button type="submit" class="book-go"><i class="bi bi-whatsapp"></i> Cere preț</button>
         </div>
-        <p class="book-err" id="err" hidden>Completează de unde și până unde.</p>
-        <p class="book-note"><i class="bi bi-info-circle"></i> Se deschide WhatsApp cu mesajul gata scris. Îți răspundem cu prețul și ora de preluare.</p>
+
+        <p class="step"><span>3</span> Apasă aici:</p>
+        <button type="submit" class="book-go"><i class="bi bi-whatsapp"></i> Trimite pe WhatsApp</button>
+        <p class="book-err" id="err" hidden>Scrie de unde pleci și unde mergi.</p>
+        <p class="book-note"><i class="bi bi-info-circle"></i> Se deschide WhatsApp cu mesajul gata scris. Noi îți răspundem cu prețul.</p>
       </form>
 
       <div class="routes">
-        <span>Exemple:</span>
+        <span>Sau apasă pe un exemplu:</span>
         <button type="button" data-de="București" data-la="München">București → München</button>
         <button type="button" data-de="Pitești" data-la="Viena">Pitești → Viena</button>
         <button type="button" data-de="Cluj-Napoca" data-la="Amsterdam">Cluj → Amsterdam</button>
         <button type="button" data-de="Iași" data-la="Bruxelles">Iași → Bruxelles</button>
-        <button type="button" data-de="Stuttgart" data-la="Craiova">Stuttgart → Craiova</button>
       </div>
     </div>
   </section>
@@ -127,7 +152,7 @@
           <div class="svc-body">
             <h3>Persoane</h3>
             <p>Microbuz de 8+1 locuri, cu încărcătoare pentru telefon și apă la bord. Te luăm de acasă, cu bagajele tale, și te lăsăm la adresa unde mergi — fără autogară și fără schimbări.</p>
-            <a href="#form" data-tip="Persoane" class="svc-link">Rezervă un loc <i class="bi bi-arrow-right"></i></a>
+            <a href="#oferta" data-tip="Persoane" class="svc-link">Rezervă un loc <i class="bi bi-arrow-right"></i></a>
           </div>
         </article>
         <article class="svc-card">
@@ -135,7 +160,7 @@
           <div class="svc-body">
             <h3>Colete</h3>
             <p>Ridicăm coletul de la expeditor și îl predăm în mâna destinatarului. Haine, mâncare, cadouri, acte — fiecare pachet tratat cu grijă.</p>
-            <a href="#form" data-tip="Colet" class="svc-link">Trimite un colet <i class="bi bi-arrow-right"></i></a>
+            <a href="#oferta" data-tip="Colet" class="svc-link">Trimite un colet <i class="bi bi-arrow-right"></i></a>
           </div>
         </article>
         <article class="svc-card">
@@ -143,7 +168,7 @@
           <div class="svc-body">
             <h3>Mașini pe platformă</h3>
             <p>Ți-ai luat mașină din Germania sau vrei s-o aduci acasă? O încărcăm pe platformă și o livrăm la adresă, cu acoperire CMR.</p>
-            <a href="#form" data-tip="Mașină pe platformă" class="svc-link">Cere ofertă <i class="bi bi-arrow-right"></i></a>
+            <a href="#oferta" data-tip="Mașină pe platformă" class="svc-link">Cere ofertă <i class="bi bi-arrow-right"></i></a>
           </div>
         </article>
       </div>
@@ -161,14 +186,6 @@
         <div class="lux-text">
           <h2>Călătorești lejer, ca la clasa business</h2>
           <p class="lead">Drumul e lung, așa că am făcut din el o plăcere. Stai comod, ai loc pentru picioare și tot ce-ți trebuie la îndemână.</p>
-          <div class="comfort">
-            <div class="cf"><i class="bi bi-snow2"></i><div><b>Aer condiționat</b><span>Răcoare vara, cald iarna, pe tot drumul.</span></div></div>
-            <div class="cf"><i class="bi bi-arrows-expand"></i><div><b>Stai lejer</b><span>Loc generos pentru picioare, nu stai înghesuit.</span></div></div>
-            <div class="cf"><i class="bi bi-lightbulb"></i><div><b>Lumini LED ambientale</b><span>Atmosferă plăcută și seara, la drum lung.</span></div></div>
-            <div class="cf"><i class="bi bi-phone-vibrate"></i><div><b>Încărcătoare</b><span>Minimul de confort: telefonul mereu încărcat.</span></div></div>
-            <div class="cf cf-max"><i class="bi bi-cup-straw"></i><div><b>Apă la bord</b><span>Maximul de confort: apă pentru fiecare pasager.</span></div></div>
-            <div class="cf"><i class="bi bi-cup-hot"></i><div><b>Pauze pe drum</b><span>Opriri regulate ca să te dezmorțești.</span></div></div>
-          </div>
         </div>
       </div>
 
