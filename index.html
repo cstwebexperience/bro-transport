@@ -1,263 +1,664 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ro">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>BRO Transport International — Transport persoane, colete și auto România ↔ Austria, Germania, Olanda</title>
-<meta name="description" content="Transport persoane, colete și autoturisme pe platformă între România, Austria, Germania și Olanda. De la adresă la adresă, plecări zilnice. Sună sau scrie pe WhatsApp: 0790 752 888.">
-<meta name="theme-color" content="#F26B0F">
-<link rel="canonical" href="https://brotransport.vercel.app/">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="ro_RO">
-<meta property="og:title" content="BRO Transport International — România ↔ Europa, de la adresă la adresă">
-<meta property="og:description" content="Persoane, colete și mașini pe platformă. România – Austria – Germania – Olanda. Tel/WhatsApp 0790 752 888.">
-<meta property="og:image" content="https://brotransport.vercel.app/img/og.jpg">
-<link rel="icon" href="img/favicon.png">
-<link rel="apple-touch-icon" href="img/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/trafic-cut-m.webp" media="(max-width: 760px)">
-<link rel="preload" as="image" href="img/trafic-cut.webp" media="(min-width: 761px)">
-<link rel="stylesheet" href="style.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "BRO Transport International",
-  "description": "Transport persoane, colete și autoturisme pe platformă între România, Austria, Germania și Olanda, de la adresă la adresă.",
-  "telephone": "+40790752888",
-  "image": "https://brotransport.vercel.app/img/og.jpg",
-  "url": "https://brotransport.vercel.app/",
-  "areaServed": ["România", "Austria", "Germania", "Olanda"],
-  "sameAs": ["https://www.facebook.com/optimbro.88/", "https://www.instagram.com/optimbrotransport/"]
-}
-</script>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+  <title>BRO Transport International — Transport persoane, colete și auto România ↔ Austria, Germania, Olanda</title>
+  <meta name="description" content="Transport persoane, colete și autoturisme pe platformă între România, Austria, Germania și Olanda. De la adresă la adresă, plecări zilnice. Sună sau scrie pe WhatsApp: 0790 752 888.">
+  <meta name="theme-color" content="#F26B0F">
+  <link rel="canonical" href="https://brotransport.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:title" content="BRO Transport International — România ↔ Europa, de la adresă la adresă">
+  <meta property="og:description" content="Persoane, colete și mașini pe platformă. România – Austria – Germania – Olanda. Tel/WhatsApp 0790 752 888.">
+  <meta property="og:image" content="https://brotransport.vercel.app/img/og.jpg">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/favicon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/bro.css" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "BRO Transport International",
+    "description": "Transport persoane, colete și autoturisme pe platformă între România, Austria, Germania și Olanda, de la adresă la adresă.",
+    "telephone": "+40790752888",
+    "image": "https://brotransport.vercel.app/img/og.jpg",
+    "url": "https://brotransport.vercel.app/",
+    "areaServed": ["România", "Austria", "Germania", "Olanda"],
+    "sameAs": ["https://www.facebook.com/optimbro.88/", "https://www.instagram.com/optimbrotransport/"]
+  }
+  </script>
+
+  <!-- =======================================================
+  * Template Name: Logis
+  * Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
-<body>
 
-<header class="top">
-  <div class="wrap top__in">
-    <a href="#" class="brand" aria-label="BRO Transport International — acasă">
-      <img src="img/logo.webp" alt="BRO Transport International" width="630" height="222">
-    </a>
-    <nav class="nav" aria-label="Meniu">
-      <a href="#servicii">Servicii</a>
-      <a href="#flota">Mașini</a>
-      <a href="#rezervare">Rezervare</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a class="top__call" href="tel:+40790752888">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>
-      <span>0790 752 888</span>
-    </a>
-  </div>
-</header>
+<body class="index-page">
 
-<main>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap hero__grid">
-    <div class="hero__text">
-      <p class="hero__kicker"><span class="dot"></span> Plecări zilnice</p>
-      <h1>Transport <em>România&nbsp;↔&nbsp;Europa</em>, de la adresă la adresă</h1>
-      <p class="countries">
-        <span class="c-ro">România</span><i>–</i><span class="c-at">Austria</span><i>–</i><span class="c-de">Germania</span><i>–</i><span class="c-nl">Olanda</span>
-      </p>
-      <p class="hero__lead">Persoane, colete și mașini pe platformă. Te luăm de la ușă și te lăsăm la ușă — fără autogară, fără drumuri în plus.</p>
-      <div class="cta">
-        <a class="btn btn--call" href="tel:+40790752888">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>
-          Sună acum
-        </a>
-        <a class="btn btn--wa" href="https://wa.me/40790752888?text=Bun%C4%83%20ziua!%20A%C8%99%20dori%20o%20ofert%C4%83%20de%20transport." target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
-          WhatsApp
-        </a>
+  <div class="topbar d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-geo-alt d-none d-md-inline"></i><span class="d-none d-md-inline">Transport zilnic România – Austria – Germania – Olanda</span>
+        <i class="bi bi-phone ms-md-4"></i><a href="tel:+40790752888">0790 752 888</a>
+        <i class="bi bi-whatsapp ms-4"></i><a href="https://wa.me/40790752888" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="https://www.facebook.com/optimbro.88/" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/optimbrotransport/" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
       </div>
     </div>
-    <figure class="hero__van">
-      <picture>
-        <source media="(max-width: 760px)" srcset="img/trafic-cut-m.webp">
-        <img src="img/trafic-cut.webp" alt="Microbuz Renault Trafic 8+1 locuri, BRO Transport" width="1024" height="688" fetchpriority="high">
-      </picture>
-      <figcaption>Renault Trafic · 8+1 locuri</figcaption>
-    </figure>
   </div>
 
-  <ul class="perks wrap" aria-label="Pe scurt">
-    <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shield"/></svg>Siguranță</li>
-    <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-seat"/></svg>Confort</li>
-    <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg>Punctualitate</li>
-    <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-box"/></svg>Colete rapide</li>
-  </ul>
-</section>
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-<!-- RUTA -->
-<section class="route" aria-label="Traseu">
-  <div class="wrap">
-    <ol class="route__line">
-      <li><span class="flag"><svg viewBox="0 0 3 2"><rect width="1" height="2" fill="#002B7F"/><rect x="1" width="1" height="2" fill="#FCD116"/><rect x="2" width="1" height="2" fill="#CE1126"/></svg></span><b>România</b></li>
-      <li><span class="flag"><svg viewBox="0 0 3 2"><rect width="3" height="2" fill="#C8102E"/><rect y=".667" width="3" height=".667" fill="#fff"/></svg></span><b>Austria</b></li>
-      <li><span class="flag"><svg viewBox="0 0 3 2"><rect width="3" height=".667" fill="#000"/><rect y=".667" width="3" height=".667" fill="#DD0000"/><rect y="1.333" width="3" height=".667" fill="#FFCE00"/></svg></span><b>Germania</b></li>
-      <li><span class="flag"><svg viewBox="0 0 3 2"><rect width="3" height=".667" fill="#AE1C28"/><rect y=".667" width="3" height=".667" fill="#fff"/><rect y="1.333" width="3" height=".667" fill="#21468B"/></svg></span><b>Olanda</b></li>
-    </ol>
-    <p class="route__note">Dus și întors, în ambele sensuri. Ne spui orașul — venim la adresă.</p>
-  </div>
-</section>
+      <a href="#hero" class="logo d-flex align-items-center me-auto">
+        <img src="img/logo.webp" alt="BRO Transport International" width="630" height="222">
+      </a>
 
-<!-- SERVICII -->
-<section class="sec" id="servicii">
-  <div class="wrap">
-    <h2 class="h2"><span>Ce transportăm</span></h2>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Acasă</a></li>
+          <li><a href="#servicii">Servicii</a></li>
+          <li><a href="#despre">Despre noi</a></li>
+          <li><a href="#incredere">De ce noi</a></li>
+          <li><a href="#intrebari">Întrebări</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
 
-    <div class="svc">
-      <article class="svc__card">
-        <div class="svc__num">01</div>
-        <svg class="svc__ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-people"/></svg>
-        <h3>Persoane</h3>
-        <p>Călătorești confortabil, cu bagajele tale, până la ușa casei. Punem siguranța și confortul pasagerilor pe primul loc.</p>
-      </article>
-      <article class="svc__card">
-        <div class="svc__num">02</div>
-        <svg class="svc__ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-box"/></svg>
-        <h3>Colete</h3>
-        <p>Preluăm coletul direct de la expeditor și îl predăm la adresa destinatarului. Grijă de la preluare până la predare.</p>
-      </article>
-      <article class="svc__card">
-        <div class="svc__num">03</div>
-        <svg class="svc__ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-car"/></svg>
-        <h3>Mașini pe platformă</h3>
-        <p>Îți aducem autoturismul pe platformă, cu atenție pe tot drumul și acoperire CMR conform condițiilor transportului.</p>
-      </article>
+      <a class="btn-getstarted" href="#oferta">Cere ofertă</a>
+
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- FLOTA -->
-<section class="sec sec--grey" id="flota">
-  <div class="wrap">
-    <h2 class="h2"><span>Cu ce mergem</span></h2>
-    <div class="fleet">
-      <article class="car">
-        <div class="car__img">
-          <img src="img/trafic-m.webp" alt="Renault Trafic alb, 2010" width="720" height="484" loading="lazy">
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <img src="img/world-dotted-map.png" alt="" class="hero-bg" data-aos="fade-in">
+
+      <div class="container">
+        <div class="row gy-4 d-flex justify-content-between">
+          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            <h2 data-aos="fade-up">Transport persoane și colete <span class="accent">România ↔ Europa</span>, de la adresă la adresă</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Plecări zilnice între România, Austria, Germania și Olanda. Te luăm de acasă și te lăsăm la ușă, cu bagajele tale. Trimitem colete și aducem mașini pe platformă — cu seriozitate și grijă pentru fiecare drum.</p>
+
+            <div class="hero-cta d-flex flex-wrap gap-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+              <a href="tel:+40790752888" class="btn-hero btn-hero-call"><i class="bi bi-telephone-fill"></i> 0790 752 888</a>
+              <a href="https://wa.me/40790752888?text=Bun%C4%83%20ziua!%20A%C8%99%20dori%20o%20ofert%C4%83%20de%20transport." target="_blank" rel="noopener" class="btn-hero btn-hero-wa"><i class="bi bi-whatsapp"></i> Scrie pe WhatsApp</a>
+            </div>
+
+            <div class="row gy-4" data-aos="fade-up" data-aos-delay="300">
+              <div class="col-lg-3 col-6">
+                <div class="stats-item text-center w-100 h-100">
+                  <span>4</span>
+                  <p>Țări deservite</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-6">
+                <div class="stats-item text-center w-100 h-100">
+                  <span>Zilnic</span>
+                  <p>Plecări</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-6">
+                <div class="stats-item text-center w-100 h-100">
+                  <span>3</span>
+                  <p>Servicii</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-6">
+                <div class="stats-item text-center w-100 h-100">
+                  <span>100%</span>
+                  <p>Adresă la adresă</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+            <picture>
+              <source media="(max-width: 760px)" srcset="img/trafic-cut-m.webp">
+              <img src="img/trafic-cut.webp" class="img-fluid mb-3 mb-lg-0" alt="Microbuz Renault Trafic 8+1 locuri, BRO Transport" width="1024" height="688" fetchpriority="high">
+            </picture>
+          </div>
+
         </div>
-        <div class="car__body">
-          <h3>Renault Trafic</h3>
-          <p class="car__sub">Microbuz pentru pasageri</p>
-          <ul class="specs">
-            <li><b>8+1</b><span>locuri</span></li>
-            <li><b>2.0</b><span>dCi diesel</span></li>
-            <li><b>Geamuri</b><span>pe toată lungimea</span></li>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- Featured Services Section -->
+    <section id="featured-services" class="featured-services section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon flex-shrink-0"><i class="fa-solid fa-people-group"></i></div>
+            <div>
+              <h4 class="title">Transport persoane</h4>
+              <p class="description">Călătorești confortabil, cu bagajele tale, până la ușa casei. Siguranța și confortul pasagerilor sunt pe primul loc.</p>
+              <a href="#oferta" class="readmore stretched-link"><span>Rezervă un loc</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon flex-shrink-0"><i class="fa-solid fa-box-open"></i></div>
+            <div>
+              <h4 class="title">Transport colete</h4>
+              <p class="description">Preluăm coletul direct de la expeditor și îl predăm la adresa destinatarului. Fiecare pachet e tratat cu responsabilitate.</p>
+              <a href="#oferta" class="readmore stretched-link"><span>Trimite un colet</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon flex-shrink-0"><i class="fa-solid fa-truck-pickup"></i></div>
+            <div>
+              <h4 class="title">Mașini pe platformă</h4>
+              <p class="description">Transportăm autoturisme pe platformă, cu atenție pe tot drumul și acoperire CMR conform condițiilor transportului.</p>
+              <a href="#oferta" class="readmore stretched-link"><span>Cere ofertă</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Featured Services Section -->
+
+    <!-- About Section -->
+    <section id="despre" class="about section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6 position-relative align-self-start order-lg-last order-first" data-aos="fade-up" data-aos-delay="200">
+            <img src="img/trafic-fata.jpg" class="img-fluid about-photo" alt="Microbuzul Renault Trafic cu care facem cursele" loading="lazy" width="1000" height="750">
+            <div class="about-badge"><i class="bi bi-patch-check-fill"></i> Mașini proprii, verificate înainte de fiecare drum</div>
+          </div>
+
+          <div class="col-lg-6 content order-last order-lg-first" data-aos="fade-up" data-aos-delay="100">
+            <h3>Despre noi</h3>
+            <p>
+              BRO TRANSPORT INTERNATIONAL înseamnă experiență, seriozitate și grijă pentru fiecare drum. Pentru noi, fiecare cursă înseamnă mai mult decât kilometri parcurși: înseamnă oameni, bunuri și mașini care trebuie să ajungă în siguranță la destinație.
+            </p>
+            <ul>
+              <li>
+                <i class="bi bi-award"></i>
+                <div>
+                  <h5>Aceeași echipă ca OptimBro Transport</h5>
+                  <p>Suntem oamenii din spatele OptimBro Transport, firmă de transport din București distinsă în TOP 100 România 2025.</p>
+                </div>
+              </li>
+              <li>
+                <i class="bi bi-telephone-inbound"></i>
+                <div>
+                  <h5>Vorbești direct cu noi, nu cu un call-center</h5>
+                  <p>Răspundem la telefon și pe WhatsApp. Știi mereu cine te duce, când pleci și când ajungi.</p>
+                </div>
+              </li>
+              <li>
+                <i class="bi bi-shield-check"></i>
+                <div>
+                  <h5>Siguranță înainte de toate</h5>
+                  <p>Condus responsabil, pauze regulate pe drum și atenție la fiecare pasager, bagaj și colet.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Services Section -->
+    <section id="servicii" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span>Servicii</span>
+        <h2>Servicii</h2>
+        <p>Tot ce ai nevoie să ajungă dintr-o țară în alta — oameni, pachete sau mașini</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card">
+              <div class="card-img">
+                <img src="img/interior-banchete.jpg" alt="Banchetele din microbuz" class="img-fluid" loading="lazy">
+              </div>
+              <h3>Transport persoane</h3>
+              <p>Microbuz de 8+1 locuri, cu scaune comode și geamuri pe toată lungimea. Plecăm de la adresa ta și te lăsăm la destinație, fără autogară și fără schimbări.</p>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="card">
+              <div class="card-img">
+                <img src="img/colet.jpg" alt="Colet pregătit de trimis" class="img-fluid" loading="lazy">
+              </div>
+              <h3>Colete și pachete</h3>
+              <p>Trimite acasă sau în străinătate haine, mâncare, cadouri sau acte. Ridicăm coletul de la tine și îl predăm direct destinatarului.</p>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="card">
+              <div class="card-img">
+                <img src="img/platforma.jpg" alt="Autoturism transportat pe platformă" class="img-fluid" loading="lazy">
+              </div>
+              <h3>Mașini pe platformă</h3>
+              <p>Ți-ai cumpărat mașină din Germania sau vrei s-o aduci acasă? O încărcăm pe platformă și o livrăm la adresă, cu acoperire CMR.</p>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="card">
+              <div class="card-img">
+                <img src="img/portbagaj.jpg" alt="Spațiul de bagaje din microbuz" class="img-fluid" loading="lazy">
+              </div>
+              <h3>Loc pentru bagaje</h3>
+              <p>Spațiu generos în spate pentru valize și genți. Spune-ne la rezervare ce bagaje ai, ca să avem loc pentru toate.</p>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="card">
+              <div class="card-img card-img-white">
+                <img src="img/sharan-remorca.jpg" alt="Volkswagen Sharan cu remorcă acoperită" class="img-fluid" loading="lazy">
+              </div>
+              <h3>Obiecte mari, cu remorca</h3>
+              <p>Pentru bagaje voluminoase și colete mari mergem cu remorcă acoperită cu prelată — lucrurile tale stau ferite de ploaie și praf.</p>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="card">
+              <div class="card-img">
+                <img src="img/interior-scaune.jpg" alt="Scaunele pasagerilor" class="img-fluid" loading="lazy">
+              </div>
+              <h3>Familii și grupuri</h3>
+              <p>Mergeți mai mulți? Rezervați împreună și călătoriți în aceeași mașină, direct de la adresa voastră.</p>
+            </div>
+          </div><!-- End Card Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+    <!-- Call To Action Section -->
+    <section id="call-to-action" class="call-to-action section dark-background">
+
+      <img src="img/autostrada.jpg" alt="">
+
+      <div class="container">
+        <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-xl-10">
+            <div class="text-center">
+              <h3>Pleci spre Austria, Germania sau Olanda?</h3>
+              <p>Sună-ne sau scrie-ne pe WhatsApp și îți spunem pe loc când e următoarea plecare și cât costă. Rezervarea durează un minut.</p>
+              <a class="cta-btn" href="tel:+40790752888"><i class="bi bi-telephone-fill"></i> Sună acum: 0790 752 888</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Call To Action Section -->
+
+    <!-- Features Section -->
+    <section id="incredere" class="features section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span>De ce să ai încredere în noi</span>
+        <h2>De ce să ai încredere în noi</h2>
+        <p>Știm că îți lași în grija noastră familia, lucrurile și mașina. Așa lucrăm</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+            <img src="img/trafic-lateral.jpg" class="img-fluid" alt="Microbuzul văzut din lateral" loading="lazy">
+          </div>
+          <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
+            <h3>O firmă serioasă, cu oameni pe care îi poți suna oricând</h3>
+            <p class="fst-italic">
+              Nu suntem o platformă sau un intermediar. Mașinile sunt ale noastre, șoferii sunt oamenii noștri, iar telefonul îl răspundem noi.
+            </p>
+            <ul>
+              <li><i class="bi bi-check"></i> <span>Aceeași echipă ca OptimBro Transport — TOP 100 România 2025.</span></li>
+              <li><i class="bi bi-check"></i> <span>Peste 10.000 de oameni ne urmăresc pe Instagram.</span></li>
+              <li><i class="bi bi-check"></i> <span>Mașini verificate și curate înainte de fiecare cursă.</span></li>
+            </ul>
+          </div>
+        </div><!-- Features Item -->
+
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <img src="img/colet.jpg" class="img-fluid" alt="Colet predat în mână" loading="lazy">
+          </div>
+          <div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
+            <h3>Coletul tău ajunge exact la cine trebuie</h3>
+            <p class="fst-italic">
+              Preluăm pachetul personal, de la adresa ta, și îl predăm tot personal, în mâna destinatarului.
+            </p>
+            <ul>
+              <li><i class="bi bi-check"></i> <span>Fără depozite intermediare și fără curieri schimbați pe drum.</span></li>
+              <li><i class="bi bi-check"></i> <span>Te anunțăm când am ridicat coletul și când l-am predat.</span></li>
+              <li><i class="bi bi-check"></i> <span>Obiectele fragile sunt așezate separat și fixate bine.</span></li>
+            </ul>
+          </div>
+        </div><!-- Features Item -->
+
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out">
+            <img src="img/platforma.jpg" class="img-fluid" alt="Mașină pe platformă, pregătită de drum" loading="lazy">
+          </div>
+          <div class="col-md-7" data-aos="fade-up">
+            <h3>Mașina ta, prinsă corect și acoperită CMR</h3>
+            <p>Autoturismul se ancorează pe platformă cu chingi pe roți și se verifică pe drum la fiecare oprire. Transportul are acoperire CMR, conform condițiilor aplicabile.</p>
+            <ul>
+              <li><i class="bi bi-check"></i> <span>Preluare de la vânzător, dealer sau parcare.</span></li>
+              <li><i class="bi bi-check"></i> <span>Livrare la adresa ta din România sau din străinătate.</span></li>
+              <li><i class="bi bi-check"></i> <span>Preț stabilit dinainte, fără costuri ascunse.</span></li>
+            </ul>
+          </div>
+        </div><!-- Features Item -->
+
+      </div>
+
+    </section><!-- /Features Section -->
+
+    <!-- Trust strip -->
+    <section class="trust section light-background">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="trust-item"><i class="bi bi-shield-check"></i><h4>Siguranță</h4><p>Șoferi cu experiență pe rutele din Europa</p></div>
+          </div>
+          <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="trust-item"><i class="bi bi-clock-history"></i><h4>Punctualitate</h4><p>Îți spunem ora de preluare și o respectăm</p></div>
+          </div>
+          <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="trust-item"><i class="bi bi-cash-coin"></i><h4>Preț corect</h4><p>Știi prețul înainte de plecare, fără surprize</p></div>
+          </div>
+          <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="trust-item"><i class="bi bi-house-door"></i><h4>La ușa ta</h4><p>De la adresă la adresă, în ambele sensuri</p></div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Trust strip -->
+
+    <!-- Get A Quote Section -->
+    <section id="oferta" class="get-a-quote section">
+
+      <div class="container">
+
+        <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-5 quote-bg" style="background-image: url(img/telefon.jpg);"></div>
+
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
+            <form id="form" class="php-email-form" novalidate>
+              <h3>Cere o ofertă</h3>
+              <p>Completează câmpurile de mai jos. Mesajul se deschide gata scris în WhatsApp — tu doar apeși „Trimite”. Îți răspundem cu prețul și ora de plecare.</p>
+
+              <div class="row gy-4">
+
+                <div class="col-12">
+                  <div class="seg" role="radiogroup" aria-label="Ce transportăm">
+                    <label><input type="radio" name="tip" value="Persoane" checked><span><i class="fa-solid fa-people-group"></i> Persoane</span></label>
+                    <label><input type="radio" name="tip" value="Colet"><span><i class="fa-solid fa-box-open"></i> Colet</span></label>
+                    <label><input type="radio" name="tip" value="Mașină pe platformă"><span><i class="fa-solid fa-car"></i> Mașină</span></label>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <input type="text" name="de" class="form-control" placeholder="Oraș de plecare (ex. Pitești)" required>
+                </div>
+
+                <div class="col-md-6">
+                  <input type="text" name="la" class="form-control" placeholder="Oraș de destinație (ex. München)" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="mini-label" for="f-data">Data dorită</label>
+                  <input type="date" id="f-data" name="data" class="form-control">
+                </div>
+
+                <div class="col-md-6" data-for="Persoane">
+                  <label class="mini-label" for="f-nr">Număr persoane</label>
+                  <select id="f-nr" name="nr" class="form-control">
+                    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option>
+                  </select>
+                </div>
+
+                <div class="col-lg-12">
+                  <h4>Datele tale</h4>
+                </div>
+
+                <div class="col-md-6">
+                  <input type="text" name="nume" class="form-control" placeholder="Nume" autocomplete="name">
+                </div>
+
+                <div class="col-md-6">
+                  <input type="tel" name="tel" class="form-control" placeholder="Telefon" autocomplete="tel">
+                </div>
+
+                <div class="col-12">
+                  <textarea class="form-control" name="det" rows="3" placeholder="Detalii (bagaje, dimensiune colet, model mașină…)"></textarea>
+                </div>
+
+                <div class="col-12 text-center">
+                  <div class="error-message" id="err" hidden>Scrie orașul de plecare și destinația, te rog.</div>
+                  <button type="submit"><i class="bi bi-whatsapp"></i> Trimite pe WhatsApp</button>
+                  <p class="form-alt">sau sună direct: <a href="tel:+40790752888">0790 752 888</a></p>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Quote Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Get A Quote Section -->
+
+    <!-- Faq Section -->
+    <section id="intrebari" class="faq section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span>Întrebări frecvente</span>
+        <h2>Întrebări frecvente</h2>
+        <p>Cele mai des întâlnite întrebări de la clienții noștri</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row justify-content-center">
+
+          <div class="col-lg-10">
+
+            <div class="faq-container">
+
+              <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>Cum rezerv un loc?</h3>
+                <div class="faq-content">
+                  <p>Sună la 0790 752 888 sau scrie-ne pe WhatsApp. Ne spui de unde pleci, unde mergi și în ce zi — noi îți confirmăm locul, prețul și ora la care trecem să te luăm.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>De unde mă luați și unde mă lăsați?</h3>
+                <div class="faq-content">
+                  <p>Direct de la adresa ta și până la adresa unde mergi. Nu trebuie să ajungi la autogară sau într-un punct de întâlnire.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>Pot trimite un colet fără să călătoresc?</h3>
+                <div class="faq-content">
+                  <p>Da. Ridicăm coletul de la tine și îl predăm destinatarului, oriunde în România, Austria, Germania sau Olanda.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>Cât costă transportul?</h3>
+                <div class="faq-content">
+                  <p>Prețul depinde de traseu și de ce transportăm. Îl afli exact la telefon sau pe WhatsApp, înainte de plecare — fără costuri ascunse.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>Transportați și mașini cumpărate din străinătate?</h3>
+                <div class="faq-content">
+                  <p>Da. Preluăm autoturismul de la vânzător sau dealer și îl aducem pe platformă până la adresa ta, cu acoperire CMR conform condițiilor transportului.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="700">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>Cât de des aveți plecări?</h3>
+                <div class="faq-content">
+                  <p>Avem plecări zilnice pe ruta România – Austria – Germania – Olanda, în ambele sensuri. Sună-ne și îți spunem prima plecare disponibilă.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Faq Section -->
+
+  </main>
+
+  <footer id="contact" class="footer dark-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="#hero" class="logo d-flex align-items-center">
+            <span class="sitename">BRO <small>Transport International</small></span>
+          </a>
+          <p>Transport persoane, colete și autoturisme pe platformă între România, Austria, Germania și Olanda. De la adresă la adresă — Europa mai aproape de tine.</p>
+          <div class="social-links d-flex mt-4">
+            <a href="https://wa.me/40790752888" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://www.facebook.com/optimbro.88/" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/optimbrotransport/" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Linkuri</h4>
+          <ul>
+            <li><a href="#hero">Acasă</a></li>
+            <li><a href="#despre">Despre noi</a></li>
+            <li><a href="#servicii">Servicii</a></li>
+            <li><a href="#intrebari">Întrebări</a></li>
+            <li><a href="#oferta">Cere ofertă</a></li>
           </ul>
         </div>
-      </article>
-      <article class="car">
-        <div class="car__img">
-          <img src="img/sharan-remorca-m.webp" alt="Volkswagen Sharan gri cu remorcă acoperită cu prelată" width="720" height="484" loading="lazy">
-        </div>
-        <div class="car__body">
-          <h3>Volkswagen Sharan + remorcă</h3>
-          <p class="car__sub">Pasageri și bagaje mari</p>
-          <ul class="specs">
-            <li><b>7</b><span>locuri</span></li>
-            <li><b>Remorcă</b><span>acoperită cu prelată</span></li>
-            <li><b>Colete</b><span>și bagaje voluminoase</span></li>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Servicii</h4>
+          <ul>
+            <li><a href="#servicii">Transport persoane</a></li>
+            <li><a href="#servicii">Transport colete</a></li>
+            <li><a href="#servicii">Mașini pe platformă</a></li>
+            <li><a href="#servicii">Obiecte voluminoase</a></li>
           </ul>
         </div>
-      </article>
-    </div>
-  </div>
-</section>
 
-<!-- REZERVARE -->
-<section class="sec" id="rezervare">
-  <div class="wrap book">
-    <div class="book__side">
-      <h2 class="h2"><span>Rezervă în 1 minut</span></h2>
-      <ol class="steps">
-        <li><b>Completezi</b> de unde, unde și când.</li>
-        <li><b>Ne trimiți</b> pe WhatsApp — mesajul se scrie singur.</li>
-        <li><b>Te sunăm</b> cu prețul și ora de preluare.</li>
-      </ol>
-      <p class="book__alt">Preferi să vorbești direct? <a href="tel:+40790752888">Sună la 0790 752 888</a></p>
-    </div>
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contact</h4>
+          <p>România – Austria – Germania – Olanda</p>
+          <p class="mt-4"><strong>Telefon:</strong> <a href="tel:+40790752888">0790 752 888</a></p>
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/40790752888" target="_blank" rel="noopener">0790 752 888</a></p>
+          <p class="mt-3 partner">Transport marfă și mutări în țară: <a href="https://optimbro.ro/" target="_blank" rel="noopener">OptimBro Transport</a> · <a href="tel:+40725228888">0725 22 88 88</a></p>
+        </div>
 
-    <form class="form" id="form" novalidate>
-      <fieldset class="seg">
-        <legend>Ce transportăm?</legend>
-        <label><input type="radio" name="tip" value="Persoane" checked><span>Persoane</span></label>
-        <label><input type="radio" name="tip" value="Colet"><span>Colet</span></label>
-        <label><input type="radio" name="tip" value="Mașină pe platformă"><span>Mașină</span></label>
-      </fieldset>
-      <div class="row">
-        <label class="f"><span>De unde</span><input name="de" autocomplete="address-level2" placeholder="ex. Pitești" required></label>
-        <label class="f"><span>Până unde</span><input name="la" placeholder="ex. München" required></label>
-      </div>
-      <div class="row">
-        <label class="f"><span>Data</span><input name="data" type="date"></label>
-        <label class="f" data-for="Persoane"><span>Persoane</span>
-          <select name="nr"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select>
-        </label>
-      </div>
-      <label class="f"><span>Nume</span><input name="nume" autocomplete="name" placeholder="Numele tău"></label>
-      <label class="f"><span>Detalii <small>(opțional)</small></span><textarea name="det" rows="2" placeholder="bagaje, dimensiune colet, model mașină…"></textarea></label>
-      <p class="form__err" id="err" hidden>Scrie de unde și până unde, te rog.</p>
-      <button class="btn btn--wa btn--full" type="submit">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
-        Trimite pe WhatsApp
-      </button>
-    </form>
-  </div>
-</section>
-
-</main>
-
-<!-- CONTACT -->
-<footer class="foot" id="contact">
-  <div class="wrap foot__grid">
-    <div>
-      <p class="foot__brand">BRO<span>Transport International</span></p>
-      <p class="foot__tag">Europa mai aproape de tine.</p>
-    </div>
-    <div class="foot__contact">
-      <a class="foot__phone" href="tel:+40790752888">0790 752 888</a>
-      <p>Telefon &amp; WhatsApp</p>
-      <div class="social">
-        <a href="https://wa.me/40790752888" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></a>
-        <a href="https://www.facebook.com/optimbro.88/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><use href="#i-fb"/></svg></a>
-        <a href="https://www.instagram.com/optimbrotransport/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><use href="#i-ig"/></svg></a>
       </div>
     </div>
-    <div class="foot__partner">
-      <p>Transport marfă și mutări în București și în toată țara:</p>
-      <a href="https://optimbro.ro/" target="_blank" rel="noopener"><b>OptimBro Transport</b></a> · <a href="tel:+40725228888">0725 22 88 88</a>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span id="y">2026</span> <strong class="px-1 sitename">BRO Transport International</strong> <span>Toate drepturile rezervate</span></p>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
     </div>
+
+  </footer>
+
+  <!-- Bara fixă de pe telefon -->
+  <div class="dock" aria-label="Contact rapid">
+    <a class="dock-call" href="tel:+40790752888"><i class="bi bi-telephone-fill"></i> Sună</a>
+    <a class="dock-wa" href="https://wa.me/40790752888?text=Bun%C4%83%20ziua!%20A%C8%99%20dori%20o%20ofert%C4%83%20de%20transport." target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp</a>
   </div>
-  <p class="wrap foot__copy">© <span id="y">2026</span> BRO Transport International</p>
-</footer>
 
-<!-- Bara fixă de pe telefon -->
-<div class="dock" aria-label="Contact rapid">
-  <a class="dock__call" href="tel:+40790752888"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>Sună</a>
-  <a class="dock__wa" href="https://wa.me/40790752888?text=Bun%C4%83%20ziua!%20A%C8%99%20dori%20o%20ofert%C4%83%20de%20transport." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
-</div>
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Sus"><i class="bi bi-arrow-up-short"></i></a>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
-  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.96L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2zm0 18.1a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.09.89.9-3.02-.2-.31a8.2 8.2 0 1 1 6.87 3.76zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.16.25-.63.8-.78.96-.14.17-.29.19-.53.06a6.7 6.7 0 0 1-3.34-2.92c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43l-.75-1.8c-.2-.47-.4-.4-.55-.41h-.47a.9.9 0 0 0-.65.3 2.7 2.7 0 0 0-.85 2.02c0 1.19.87 2.34.99 2.5.12.17 1.7 2.6 4.13 3.65 1.54.66 2.14.72 2.9.6.47-.07 1.46-.6 1.66-1.18.2-.57.2-1.07.15-1.17-.07-.1-.23-.16-.47-.28z"/></symbol>
-  <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
-  <symbol id="i-seat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 3v9a2 2 0 0 0 2 2h7l2 7M9 14l-2 7M8 3h2"/><circle cx="16" cy="6" r="2" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
-  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 7v5l3 2"/></symbol>
-  <symbol id="i-box" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3l8 4v10l-8 4-8-4V7zM4 7l8 4 8-4M12 11v10"/></symbol>
-  <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M3 20c.6-3.4 3-5.5 6-5.5s5.4 2.1 6 5.5"/><circle cx="17" cy="9" r="2.4" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M17 14.5c2.2 0 3.7 1.6 4.2 4"/></symbol>
-  <symbol id="i-car" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12l1.6-3.6A2 2 0 0 1 8.4 7h6.2a2 2 0 0 1 1.8 1.1L18 12M4 12h15v3H4zM2 18h20"/><circle cx="7" cy="18.5" r="1.6" fill="currentColor"/><circle cx="17" cy="18.5" r="1.6" fill="currentColor"/></symbol>
-  <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.87.25-1.46 1.5-1.46H16.6V4.46A21 21 0 0 0 14.3 4.3c-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21z"/></symbol>
-  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></symbol>
-</svg>
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
 
-<script src="app.js" defer></script>
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
 </body>
+
 </html>

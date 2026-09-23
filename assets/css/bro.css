@@ -1,0 +1,197 @@
+/* BRO Transport International — culori și ajustări peste șablonul Logis */
+:root {
+  --default-color: #2b2f36;
+  --heading-color: #16181c;
+  --accent-color: #F26B0F;
+  --contrast-color: #ffffff;
+  --nav-color: #2b2f36;
+  --nav-hover-color: #F26B0F;
+  --nav-dropdown-hover-color: #F26B0F;
+}
+
+.light-background {
+  --background-color: #f6f6f4;
+}
+
+.dark-background {
+  --background-color: #16181c;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #23262c;
+}
+
+body { -webkit-text-size-adjust: 100%; }
+
+/* Top bar */
+.topbar {
+  background: var(--accent-color);
+  color: #fff;
+  height: 40px;
+  font-size: 14px;
+}
+.topbar i { margin-right: 6px; }
+.topbar a { color: #fff; font-weight: 500; }
+.topbar a:hover { color: #fff; text-decoration: underline; }
+.topbar .social-links a { margin-left: 14px; font-size: 16px; }
+
+/* Header alb, logo pe alb */
+.header {
+  --background-color: #ffffff;
+  padding: 12px 0;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .06);
+}
+.scrolled .header { --background-color: #ffffff; padding: 8px 0; }
+.header .logo img { max-height: 48px; width: auto; }
+.header .btn-getstarted,
+.header .btn-getstarted:focus { font-weight: 600; border-radius: 6px; }
+@media (min-width: 1200px) {
+  .navmenu a, .navmenu a:focus { font-weight: 500; }
+  .navmenu li:hover > a, .navmenu .active, .navmenu .active:focus { color: var(--accent-color); }
+}
+@media (max-width: 1199px) {
+  .mobile-nav-toggle { color: #16181c; }
+  .mobile-nav-active .mobile-nav-toggle { color: #fff; }
+}
+
+/* Hero */
+.hero { padding: 70px 0 60px; }
+.hero h2 { font-size: 42px; line-height: 1.2; }
+.hero h2 .accent { color: var(--accent-color); }
+.hero p { font-size: 17px; margin-bottom: 28px; color: rgba(255, 255, 255, .8); }
+.hero .hero-img img { filter: drop-shadow(0 25px 30px rgba(0, 0, 0, .45)); }
+.btn-hero {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 26px; border-radius: 6px;
+  font-family: var(--heading-font); font-weight: 600; font-size: 17px;
+  color: #fff; transition: .25s;
+}
+.btn-hero i { font-size: 19px; }
+.btn-hero-call { background: var(--accent-color); }
+.btn-hero-wa { background: #1FAF54; }
+.btn-hero:hover { color: #fff; filter: brightness(1.08); transform: translateY(-2px); }
+.hero .stats-item { padding: 18px 10px; background: rgba(255, 255, 255, .05); border-radius: 8px; }
+.hero .stats-item span { font-size: 28px; }
+@media (max-width: 575px) {
+  .hero { padding: 36px 0 40px; }
+  .hero h2 { font-size: 29px; }
+  .hero p { font-size: 16px; }
+  .hero-cta { display: grid !important; grid-template-columns: 1fr; }
+  .btn-hero { justify-content: center; }
+  .hero .stats-item span { font-size: 22px; margin-bottom: 10px; padding-bottom: 10px; }
+  .hero .stats-item p { font-size: 13px; }
+}
+
+/* Despre */
+.about-photo { border-radius: 8px; }
+.about-badge {
+  position: absolute; left: 24px; bottom: -18px; right: 24px;
+  background: var(--accent-color); color: #fff;
+  padding: 12px 18px; border-radius: 6px;
+  font-family: var(--heading-font); font-weight: 600; font-size: 15px;
+  box-shadow: 0 10px 30px rgba(242, 107, 15, .35);
+}
+.about-badge i { margin-right: 6px; }
+.about .content { padding-top: 20px; }
+
+/* Servicii */
+.services .card .card-img { aspect-ratio: 4 / 3; }
+.services .card .card-img img { width: 100%; height: 100%; object-fit: cover; }
+.services .card .card-img-white { background: #fff; display: flex; align-items: center; }
+.services .card .card-img-white img { object-fit: contain; }
+.services .card h3 { font-size: 17px; }
+
+/* CTA */
+.call-to-action h3 { font-size: 30px; }
+.call-to-action .cta-btn { font-size: 17px; font-weight: 600; }
+.call-to-action .cta-btn i { margin-right: 6px; }
+
+/* Features */
+.features .features-item img { border-radius: 8px; }
+
+/* Trust strip */
+.trust-item {
+  background: #fff; border-radius: 8px; padding: 26px 20px; height: 100%;
+  text-align: center; border-bottom: 3px solid var(--accent-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .05);
+}
+.trust-item i { font-size: 34px; color: var(--accent-color); }
+.trust-item h4 { font-size: 18px; font-weight: 700; margin: 12px 0 6px; }
+.trust-item p { font-size: 14px; margin: 0; color: #5b6069; }
+@media (max-width: 575px) {
+  .trust-item { padding: 20px 12px; }
+  .trust-item h4 { font-size: 16px; }
+  .trust-item p { font-size: 13px; }
+}
+
+/* Formular ofertă */
+.get-a-quote .php-email-form input[type=tel],
+.get-a-quote .php-email-form input[type=date],
+.get-a-quote .php-email-form select {
+  font-size: 14px; padding: 10px 15px; box-shadow: none; border-radius: 0;
+  color: var(--default-color);
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+}
+.get-a-quote .php-email-form .form-control { min-height: 46px; font-size: 16px; }
+.get-a-quote .php-email-form input[type=date] { -webkit-appearance: none; appearance: none; line-height: 1.4; }
+.get-a-quote .php-email-form select {
+  -webkit-appearance: none; appearance: none;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%232b2f36' stroke-width='2' d='M3 6l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 14px center/14px;
+}
+.get-a-quote .form-control:focus { border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(242, 107, 15, .15); }
+.get-a-quote .mini-label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 4px; color: #5b6069; }
+.get-a-quote .php-email-form button[type=submit] {
+  background: #1FAF54; font-weight: 600; font-size: 17px; padding: 14px 34px; width: 100%; max-width: 360px;
+}
+.get-a-quote .php-email-form button[type=submit] i { margin-right: 6px; }
+.get-a-quote .error-message { color: #c4121f; font-weight: 600; margin-bottom: 12px; }
+.get-a-quote .form-alt { margin: 14px 0 0 !important; }
+.get-a-quote .form-alt a { font-weight: 600; }
+.seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.seg label { position: relative; margin: 0; }
+.seg input { position: absolute; opacity: 0; inset: 0; }
+.seg span {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; background: #fff; cursor: pointer; text-align: center;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  font-family: var(--heading-font); font-weight: 600; font-size: 15px;
+}
+.seg input:checked + span { background: var(--accent-color); border-color: var(--accent-color); color: #fff; }
+.seg input:focus-visible + span { outline: 2px solid var(--heading-color); outline-offset: 2px; }
+@media (max-width: 400px) {
+  .seg span { font-size: 13px; gap: 5px; }
+}
+
+/* FAQ */
+.faq .faq-container .faq-item h3 { font-size: 17px; }
+
+/* Footer */
+.footer .footer-about .logo span { color: var(--accent-color); font-style: italic; }
+.footer .footer-about .logo span small { color: #fff; font-style: normal; font-size: 15px; letter-spacing: 2px; text-transform: uppercase; margin-left: 6px; }
+.footer .footer-contact a { color: #fff; }
+.footer .footer-contact .partner { color: rgba(255, 255, 255, .6); }
+
+/* Bara fixă jos (telefon) */
+.dock { display: none; }
+@media (max-width: 767px) {
+  body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+  .dock {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 998;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, .97); border-top: 1px solid #e6e7ea;
+    transform: translateY(110%); transition: transform .25s ease;
+  }
+  .dock.on { transform: none; }
+  .dock a {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 50px; border-radius: 8px; color: #fff;
+    font-family: var(--heading-font); font-weight: 600; font-size: 17px;
+  }
+  .dock-call { background: var(--accent-color); }
+  .dock-wa { background: #1FAF54; }
+  .scroll-top { bottom: calc(86px + env(safe-area-inset-bottom)); }
+}
+
+/* CTA: poza de fundal fixă în secțiune (parallax-ul cu position:fixed e instabil pe iOS) */
+.call-to-action img { position: absolute; inset: 0; }
+.call-to-action:before { background: rgba(22, 24, 28, .62); }
