@@ -420,3 +420,15 @@ h1, h2, h3 { color: var(--ink); margin: 0; line-height: 1.2; letter-spacing: -.0
   .dock { transition: transform .35s ease; }
   body.daily-on .dock { transform: translateY(110%); }
 }
+
+/* Ștampilă roșie „Prețuri de top” pe microbuz */
+.hero-van { position: relative; }
+.price-tag { position: absolute; z-index: 2; left: 2%; top: 4%; margin: 0; padding: 12px 18px 11px; border-radius: 12px; background: #E3161B; color: #fff; text-align: center; transform: rotate(-6deg); box-shadow: 0 12px 28px rgba(227, 22, 27, .45); border: 2px dashed rgba(255, 255, 255, .55); outline: 3px solid #E3161B; outline-offset: -1px; }
+.price-tag b { display: block; font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: .02em; line-height: 1.05; }
+.price-tag span { display: block; margin-top: 3px; font-size: 13px; font-weight: 600; opacity: .95; }
+@media (max-width: 640px) {
+  .price-tag { left: 0; top: -2%; padding: 9px 13px 8px; }
+  .price-tag b { font-size: 18px; }
+  .price-tag span { font-size: 12px; }
+}
+@media (min-width: 641px) { .perks b { text-align: left; } }
