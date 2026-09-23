@@ -313,3 +313,57 @@ h1, h2, h3 { color: var(--ink); margin: 0; line-height: 1.2; letter-spacing: -.0
   .book-tabs span { font-size: 15px; height: 50px; }
   .swap { top: 50px; }
 }
+
+/* ===== Hero v3: text + microbuz, beneficii pe un rând ===== */
+.hero { padding: 64px 0 48px; overflow: hidden; background: var(--ink); }
+.hero-bg { background:
+    radial-gradient(60% 70% at 78% 45%, rgba(242, 107, 15, .38) 0%, rgba(242, 107, 15, 0) 70%),
+    linear-gradient(90deg, rgba(22, 24, 28, 1) 0%, rgba(22, 24, 28, .92) 45%, rgba(22, 24, 28, .7) 100%),
+    url(../../img/hero.jpg) center 60% / cover no-repeat; }
+.hero-in { display: grid; grid-template-columns: 1fr 1.05fr; grid-template-areas: "text van" "perks perks"; column-gap: 32px; align-items: center; }
+.hero-text { grid-area: text; }
+.hero-van { grid-area: van; margin: 0; position: relative; }
+.perks { grid-area: perks; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 16px; padding: 6px 14px; border-radius: 999px; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .14); font-size: 14px; font-weight: 600; color: rgba(255, 255, 255, .85); }
+.hero-eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--wa); box-shadow: 0 0 0 4px rgba(31, 175, 84, .25); }
+.hero h1 { font-size: clamp(34px, 4.6vw, 56px); line-height: 1.05; letter-spacing: -.02em; max-width: 12em; }
+.hero h1 em { font-style: normal; color: var(--or); display: block; }
+.hero-sub { max-width: 30em; font-size: 18px; line-height: 1.55; margin: 16px 0 28px; color: rgba(255, 255, 255, .78); }
+.hero-van img { width: 112%; max-width: none; margin-left: -4%; filter: drop-shadow(0 40px 40px rgba(0, 0, 0, .55)); }
+.hero-van figcaption { position: absolute; right: 6%; bottom: 2%; padding: 7px 14px; border-radius: 999px; background: rgba(255, 255, 255, .95); color: var(--ink); font-size: 13px; font-weight: 600; box-shadow: 0 8px 24px rgba(0, 0, 0, .25); }
+.hero-van figcaption b { color: var(--or-d); }
+.big { box-shadow: none; }
+.big-call { box-shadow: 0 12px 28px -10px rgba(242, 107, 15, .8); }
+.big-wa { box-shadow: 0 12px 28px -10px rgba(31, 175, 84, .7); }
+.perks { margin: 40px 0 0; max-width: none; grid-template-columns: repeat(6, 1fr); gap: 0; border-radius: 16px; background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .12); overflow: hidden; }
+.perks li { flex-direction: row; justify-content: center; gap: 10px; padding: 18px 10px; border: 0; border-radius: 0; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; border-right: 1px solid rgba(255, 255, 255, .1); }
+.perks li:last-child { border-right: 0; }
+.perks i { font-size: 22px; color: var(--or); }
+.perks b { font-size: 15px; font-weight: 600; }
+.perks .perk-max { background: var(--or); }
+.perks .perk-max i { color: #fff; }
+
+@media (max-width: 980px) {
+  .hero-in { grid-template-columns: 1fr; grid-template-areas: "text" "van" "perks"; }
+  .hero-van { max-width: 560px; margin: 10px auto 0; }
+  .perks { grid-template-columns: repeat(3, 1fr); margin-top: 28px; }
+  .perks li:nth-child(3n) { border-right: 0; }
+  .perks li:nth-child(-n+3) { border-bottom: 1px solid rgba(255, 255, 255, .1); }
+}
+@media (max-width: 640px) {
+  .hero { padding: 26px 0 30px; }
+  .hero-bg { background:
+      radial-gradient(90% 40% at 50% 62%, rgba(242, 107, 15, .4) 0%, rgba(242, 107, 15, 0) 70%),
+      linear-gradient(180deg, rgba(22, 24, 28, .88) 0%, rgba(22, 24, 28, .95) 100%),
+      url(../../img/hero.jpg) center / cover no-repeat; }
+  .hero-in { grid-template-areas: "text" "van" "perks"; }
+  .hero-eyebrow { font-size: 12.5px; padding: 5px 12px; margin-bottom: 12px; }
+  .hero h1 { font-size: 32px; }
+  .hero-sub { font-size: 16px; margin: 10px 0 18px; }
+  .hero-van { margin-top: 18px; }
+  .hero-van img { width: 104%; margin-left: -2%; }
+  .hero-van figcaption { font-size: 12px; right: 4%; bottom: -2%; }
+  .perks { margin-top: 22px; }
+  .perks li { flex-direction: column; gap: 6px; padding: 14px 4px; }
+  .perks b { font-size: 13.5px; }
+}
