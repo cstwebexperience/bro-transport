@@ -432,3 +432,15 @@ h1, h2, h3 { color: var(--ink); margin: 0; line-height: 1.2; letter-spacing: -.0
   .price-tag span { font-size: 12px; }
 }
 @media (min-width: 641px) { .perks b { text-align: left; } }
+
+/* „Plecări zilnice” pe paleta BRO: portocaliu, alb, negru */
+.daily { background: var(--or); box-shadow: 0 16px 36px rgba(0, 0, 0, .28); }
+.daily.in { animation: none; }
+.daily-h { font-size: 21px; text-transform: uppercase; letter-spacing: .01em; animation: daily-blink 1.8s ease-in-out infinite; }
+.daily-ic { font-size: 22px; color: #fff; }
+.daily-p { margin: 2px 0 12px 32px; color: rgba(255, 255, 255, .92); font-weight: 500; }
+.daily-x { background: rgba(0, 0, 0, .15); color: #fff; }
+.daily-x:hover { background: rgba(0, 0, 0, .28); }
+.daily-call { background: #fff; color: var(--or-d) !important; }
+.daily-wa { background: var(--ink); }
+@keyframes daily-blink { 0%, 100% { opacity: 1; } 50% { opacity: .6; } }
