@@ -18,7 +18,7 @@ for (const [name, engine, opts] of runs) {
   p.on('pageerror', (e) => console.log(name, 'JS ERROR', e.message))
   p.on('response', (r) => r.status() >= 400 && console.log(name, r.status(), r.url()))
   await p.goto(URL, { waitUntil: 'load' })
-  await p.waitForTimeout(800)
+  await p.waitForTimeout(2000)
   const ov = await p.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
   console.log(name, 'overflow-x:', ov)
   await p.screenshot({ path: `${OUT}/${name}-top.jpg`, type: 'jpeg', quality: 80 })

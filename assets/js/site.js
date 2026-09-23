@@ -62,3 +62,21 @@
     window.location.href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(lines.join("\n"));
   });
 })();
+
+// Card „Plecări zilnice”: intră din stânga după o secundă; închis = nu mai apare în sesiunea asta
+(function () {
+  var box = document.getElementById("daily");
+  if (!box) return;
+  var closed = false;
+  try { closed = sessionStorage.getItem("bro-daily") === "0"; } catch (e) {}
+  if (closed) return;
+  box.hidden = false;
+  document.body.classList.add("daily-on");
+  setTimeout(function () { box.classList.add("in"); }, 800);
+  document.getElementById("daily-x").addEventListener("click", function () {
+    box.classList.remove("in");
+    document.body.classList.remove("daily-on");
+    setTimeout(function () { box.hidden = true; }, 600);
+    try { sessionStorage.setItem("bro-daily", "0"); } catch (e) {}
+  });
+})();

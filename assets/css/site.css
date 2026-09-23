@@ -389,3 +389,34 @@ h1, h2, h3 { color: var(--ink); margin: 0; line-height: 1.2; letter-spacing: -.0
   .hero-van { margin-top: 14px; }
   .hero-van img { width: 104%; margin-left: -2%; }
 }
+
+/* ===== Card plutitor „Plecări zilnice” ===== */
+.daily { position: fixed; left: 20px; bottom: 24px; z-index: 55; width: 290px; padding: 16px 16px 14px; border-radius: 16px; background: var(--ink); color: #fff; box-shadow: 0 18px 40px rgba(0, 0, 0, .35), 0 0 0 1px rgba(255, 255, 255, .08) inset; transform: translateX(calc(-100% - 40px)); opacity: 0; transition: transform .6s cubic-bezier(.2, .9, .25, 1.15), opacity .4s ease; }
+.daily.in { transform: none; opacity: 1; animation: daily-glow 2.4s ease-in-out .8s infinite; }
+.daily-x { position: absolute; top: 8px; right: 8px; width: 30px; height: 30px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .08); color: rgba(255, 255, 255, .7); cursor: pointer; font-size: 13px; display: grid; place-items: center; }
+.daily-x:hover { background: rgba(255, 255, 255, .16); color: #fff; }
+.daily-h { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -.01em; }
+.daily-h { animation: daily-blink 1.6s ease-in-out infinite; }
+.daily-dot { position: relative; width: 12px; height: 12px; border-radius: 50%; background: var(--wa); flex: none; }
+.daily-dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--wa); animation: daily-ping 1.6s ease-out infinite; }
+.daily-p { margin: 2px 0 12px 22px; font-size: 14px; color: rgba(255, 255, 255, .7); line-height: 1.35; }
+.daily-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.daily-btns a { display: flex; align-items: center; justify-content: center; gap: 6px; height: 44px; border-radius: 10px; color: #fff; text-decoration: none; font-weight: 700; font-size: 15px; }
+.daily-call { background: var(--or); }
+.daily-wa { background: var(--wa); }
+@keyframes daily-ping { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(2.8); opacity: 0; } }
+@keyframes daily-blink { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+@keyframes daily-glow { 0%, 100% { box-shadow: 0 18px 40px rgba(0, 0, 0, .35), 0 0 0 1px rgba(255, 255, 255, .08) inset; } 50% { box-shadow: 0 18px 40px rgba(0, 0, 0, .35), 0 0 0 2px rgba(242, 107, 15, .9) inset, 0 0 28px rgba(242, 107, 15, .45); } }
+@media (max-width: 640px) {
+  .daily { left: 12px; right: 12px; width: auto; bottom: calc(84px + env(safe-area-inset-bottom)); padding: 14px 14px 12px; }
+  .daily-h { font-size: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .daily { transition: none; }
+  .daily.in, .daily-h, .daily-dot::after { animation: none; }
+}
+@media (max-width: 640px) {
+  .daily { bottom: calc(12px + env(safe-area-inset-bottom)); }
+  .dock { transition: transform .35s ease; }
+  body.daily-on .dock { transform: translateY(110%); }
+}
