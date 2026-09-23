@@ -7,7 +7,7 @@ const [, , IN, OUT] = process.argv
 const { data, info } = await sharp(IN).ensureAlpha().raw().toBuffer({ resolveWithObject: true })
 const { width: W, height: H } = info
 const isBg = (i) => {
-  const yy = ((i / 4) / W) | 0, low = yy > H * 0.72
+  const yy = ((i / 4) / W) | 0, low = yy > H * 0.6
   const r = data[i], g = data[i + 1], b = data[i + 2]
   const mx = Math.max(r, g, b), mn = Math.min(r, g, b)
   return low ? (mx > 105 && mx - mn < 30) : (mx > 175 && mx - mn < 26)
