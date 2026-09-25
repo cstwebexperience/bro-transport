@@ -444,3 +444,13 @@ h1, h2, h3 { color: var(--ink); margin: 0; line-height: 1.2; letter-spacing: -.0
 .daily-call { background: #fff; color: var(--or-d) !important; }
 .daily-wa { background: var(--ink); }
 @keyframes daily-blink { 0%, 100% { opacity: 1; } 50% { opacity: .6; } }
+
+/* Logo mai mare pe telefon */
+@media (max-width: 640px) {
+  .hd-in { height: 72px; }
+  .hd-logo img { height: 52px; }
+  html { scroll-padding-top: 80px; }
+}
+@media (max-width: 350px) {
+  .hd-logo img { height: 44px; }
+}
