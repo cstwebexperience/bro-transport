@@ -59,7 +59,9 @@
     if (f.data.value) lines.push("Data: " + fmtDate(f.data.value));
     if (tip === "Persoane") lines.push("Persoane: " + f.nr.value);
 
-    window.location.href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(lines.join("\n"));
+    var url = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(lines.join("\n"));
+    if (window.broTrack) window.broTrack("wa");
+    setTimeout(function () { window.location.href = url; }, 300);
   });
 })();
 

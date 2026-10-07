@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18498189434"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18498189434');
+
+    // Conversii Google Ads: completează label-urile din Google Ads (partea de după "/" din send_to)
+    window.BRO_CONV = { tel: '', wa: '' };
+    window.broTrack = function (kind) {
+      gtag('event', kind === 'tel' ? 'click_telefon' : 'click_whatsapp');
+      var label = window.BRO_CONV[kind];
+      if (label) gtag('event', 'conversion', { send_to: 'AW-18498189434/' + label });
+    };
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a) return;
+      var h = a.getAttribute('href');
+      if (h.indexOf('tel:') === 0) broTrack('tel');
+      else if (h.indexOf('wa.me/') > -1) broTrack('wa');
+    }, true);
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>BRO Transport International — Transport persoane, colete și auto România ↔ Austria, Germania, Olanda, Belgia</title>
