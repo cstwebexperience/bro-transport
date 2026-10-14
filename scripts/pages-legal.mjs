@@ -1,4 +1,4 @@
-// Pagini legale. Datele firmei lipsesc → TODO vizibil ([de completat]) + comentariu HTML.
+// Pagini legale. Datele firmei lipsesc → „[de completat]” vizibil DOAR la datele firmei; restul TODO-urilor sunt comentarii HTML.
 // Textele sunt un punct de plecare; recomandat să fie verificate de un jurist înainte de lansare.
 
 const FIRMA = `
@@ -34,25 +34,25 @@ ${FIRMA}
 
         <h2>4. Prețul și plata</h2>
         <p>Prețul se comunică înainte de plecare și depinde de traseu, de dată, de numărul de persoane și de ce se transportă.</p>
-        <p>[de completat] <!-- TODO: modalitățile de plată, momentul plății, moneda, emiterea documentelor fiscale. --></p>
+        <p>Pentru detalii, sună-ne la <a href="tel:+40790752888">0790 752 888</a>. <!-- TODO: modalitățile de plată, momentul plății, moneda, emiterea documentelor fiscale. --></p>
 
         <h2>5. Anularea și modificarea rezervării</h2>
-        <p>[de completat] <!-- TODO: până când se poate anula/modifica gratuit, ce se întâmplă la neprezentare, ce se întâmplă dacă transportatorul anulează sau întârzie. --></p>
+        <p>Pentru detalii, sună-ne la <a href="tel:+40790752888">0790 752 888</a>. <!-- TODO: până când se poate anula/modifica gratuit, ce se întâmplă la neprezentare, ce se întâmplă dacă transportatorul anulează sau întârzie. --></p>
 
         <h2>6. Bagaje</h2>
-        <p>[de completat] <!-- TODO: bagaje incluse, bagaj suplimentar, obiecte interzise, răspunderea pentru bagaje. --></p>
+        <p>Pentru detalii, sună-ne la <a href="tel:+40790752888">0790 752 888</a>. <!-- TODO: bagaje incluse, bagaj suplimentar, obiecte interzise, răspunderea pentru bagaje. --></p>
 
         <h2>7. Colete</h2>
         <p>Expeditorul răspunde de conținutul coletului și de ambalarea corespunzătoare. Nu transportăm bunuri interzise de lege.</p>
-        <p>[de completat] <!-- TODO: lista obiectelor interzise, limite de valoare/greutate, răspunderea pentru pierdere sau deteriorare. --></p>
+        <p>Pentru detalii, sună-ne la <a href="tel:+40790752888">0790 752 888</a>. <!-- TODO: lista obiectelor interzise, limite de valoare/greutate, răspunderea pentru pierdere sau deteriorare. --></p>
 
         <h2>8. Transport auto pe platformă</h2>
         <p>Transportul autoturismelor se face cu acoperire CMR, conform condițiilor transportului stabilite la rezervare.</p>
-        <p>[de completat] <!-- TODO: documente necesare, procesul-verbal la preluare/predare, condiții CMR. --></p>
+        <p>Pentru detalii, sună-ne la <a href="tel:+40790752888">0790 752 888</a>. <!-- TODO: documente necesare, procesul-verbal la preluare/predare, condiții CMR. --></p>
 
         <h2>9. Comportamentul la bord</h2>
         <p>Pentru siguranța tuturor, pasagerii poartă centura de siguranță și respectă indicațiile șoferului.</p>
-        <p>[de completat] <!-- TODO: reguli fumat, alcool, animale de companie, copii (scaun auto). --></p>
+        <p>Pentru detalii, sună-ne la <a href="tel:+40790752888">0790 752 888</a>. <!-- TODO: reguli fumat, alcool, animale de companie, copii (scaun auto). --></p>
 
         <h2>10. Reclamații și litigii</h2>
         <p>Pentru orice nemulțumire ne poți contacta la 0790 752 888 sau la adresa de e-mail de mai sus. Încercăm să rezolvăm orice problemă amiabil.</p>
@@ -92,10 +92,10 @@ ${FIRMA}
 
         <h2>4. Cui le transmitem</h2>
         <p>Nu vindem datele tale. Le transmitem doar cât e necesar: șoferilor care efectuează cursa, furnizorului de găzduire a site-ului (Vercel Inc.), Google (pentru măsurarea reclamelor Google Ads) și autorităților, atunci când legea o cere.</p>
-        <p>[de completat] <!-- TODO: alți împuterniciți (contabilitate, telefonie etc.). --></p>
+        <p>Pentru detalii, sună-ne la <a href="tel:+40790752888">0790 752 888</a>. <!-- TODO: alți împuterniciți (contabilitate, telefonie etc.). --></p>
 
         <h2>5. Cât timp le păstrăm</h2>
-        <p>[de completat] <!-- TODO: perioada de păstrare pentru datele de rezervare și pentru documentele contabile. --></p>
+        <p>Păstrăm datele doar cât timp sunt necesare pentru scopurile de mai sus și pentru îndeplinirea obligațiilor legale, de exemplu cele contabile. <!-- TODO: perioada de păstrare pentru datele de rezervare și pentru documentele contabile. --></p>
 
         <h2>6. Drepturile tale</h2>
         <p>Ai dreptul de acces, de rectificare, de ștergere, de restricționare a prelucrării, de portabilitate și de opoziție, precum și dreptul de a-ți retrage consimțământul oricând. Pentru oricare dintre ele ne poți contacta la datele de mai sus.</p>
@@ -114,10 +114,10 @@ ${FIRMA}
 
         <h2>1. Cookie-uri de măsurare a reclamelor (Google Ads)</h2>
         <p>Folosim eticheta Google (gtag.js) a serviciului Google Ads ca să aflăm câte persoane ne sună după ce au văzut o reclamă de-a noastră. Eticheta poate seta cookie-uri precum <code>_gcl_au</code> și poate transmite către Google informații despre vizită și despre apăsarea butonului de telefon. Detalii: <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener nofollow">politica Google privind publicitatea</a>.</p>
-        <!-- TODO: implementare banner de consimțământ + Google Consent Mode v2 (obligatoriu pentru vizitatori din SEE). Până atunci, textul de mai sus descrie situația reală. -->
+        <p><strong>Aceste cookie-uri se activează doar dacă apeși „Accept”</strong> în caseta afișată la prima vizită. Până atunci, eticheta funcționează în modul de consimțământ Google (Consent Mode v2) cu toate opțiunile pe „refuzat”, fără cookie-uri de publicitate. Îți poți schimba oricând alegerea din linkul <a href="#" data-cookie-settings>Setări cookies</a>, aflat și în subsolul fiecărei pagini.</p>
 
         <h2>2. Stocare locală necesară</h2>
-        <p>Site-ul folosește <code>sessionStorage</code> doar ca să țină minte, pe durata vizitei, că ai închis caseta „Plecări zilnice”, ca să nu-ți mai apară. Informația se șterge când închizi browserul.</p>
+        <p>Site-ul folosește <code>sessionStorage</code> ca să țină minte, pe durata vizitei, că ai închis caseta „Plecări zilnice”, și <code>localStorage</code> ca să țină minte alegerea ta despre cookie-uri (cheia <code>bro-consent</code>). Acestea nu sunt folosite pentru publicitate.</p>
 
         <h2>3. Servicii externe</h2>
         <p>Fonturile sunt încărcate de la Google Fonts. Pentru asta, browserul tău se conectează la serverele Google.</p>

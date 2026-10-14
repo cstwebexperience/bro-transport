@@ -6,6 +6,8 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500 });
+    try { if (localStorage.getItem('bro-consent') === 'granted') gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted' }); } catch (e) {}
     gtag('js', new Date());
     gtag('config', 'AW-18498189434');
 
@@ -46,6 +48,7 @@
   <meta name="twitter:image" content="https://www.brotransport.ro/img/og.jpg">
   <link rel="icon" href="/img/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="manifest" href="/site.webmanifest">
@@ -627,6 +630,7 @@
     <div class="ft-col">
       <p class="ft-h">Contact BRO Transport</p>
       <a href="tel:+40790752888"><i class="bi bi-telephone"></i> 0790 752 888</a>
+      <a href="https://wa.me/40790752888?text=Bun%C4%83%20ziua!%20A%C8%99%20dori%20o%20ofert%C4%83%20de%20transport." target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp</a>
       <a href="https://www.facebook.com/optimbro.88/" target="_blank" rel="noopener"><i class="bi bi-facebook"></i> Facebook</a>
       <a href="https://www.instagram.com/optimbrotransport/" target="_blank" rel="noopener"><i class="bi bi-instagram"></i> Instagram</a>
     </div>
@@ -650,6 +654,7 @@
     <a href="/termeni-si-conditii">Termeni și condiții</a>
     <a href="/politica-confidentialitate">Politica de confidențialitate</a>
     <a href="/cookies">Politica de cookies</a>
+    <button type="button" data-cookie-settings>Setări cookies</button>
     <a class="ft-anpc" href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener nofollow">ANPC – Soluționarea alternativă a litigiilor</a>
   </div>
   <div class="wrap ft-copy">© <span id="y">2026</span> BRO Transport International</div>
@@ -672,5 +677,6 @@
 </div>
 
 <script src="/assets/js/site.js?v=20261014" defer></script>
+<script src="/assets/js/consent.js?v=20261014" defer></script>
 </body>
 </html>

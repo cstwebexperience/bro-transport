@@ -11,6 +11,8 @@ const SITE = "https://www.brotransport.ro";
 const TEL = "+40790752888";
 const TEL_TXT = "0790 752 888";
 const ORG_ID = SITE + "/#organizatie";
+const WA = "https://wa.me/40790752888?text=" + encodeURIComponent("Bună ziua! Aș dori o ofertă de transport.");
+const waBtn = (cls = "btn btn-wa") => `<a class="${cls}" href="${WA}" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp</a>`;
 
 export const allLinks = [...routes, ...services].map((p) => ({ slug: p.slug, label: p.short, sub: p.sub }));
 
@@ -22,13 +24,18 @@ const gtag = `  <!-- Google tag (gtag.js) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500 });
+    try { if (localStorage.getItem('bro-consent') === 'granted') gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted' }); } catch (e) {}
     gtag('js', new Date());
     gtag('config', 'AW-18498189434');
     document.addEventListener('click', function (e) {
-      var a = e.target.closest && e.target.closest('a[href^="tel:"]');
+      var a = e.target.closest && e.target.closest('a[href]');
       if (!a) return;
-      gtag('event', 'click_telefon');
-      gtag('event', 'conversion', { send_to: 'AW-18498189434/kXpWCIDCtZQdEPrwz_RE' });
+      var h = a.getAttribute('href');
+      if (h.indexOf('tel:') === 0) {
+        gtag('event', 'click_telefon');
+        gtag('event', 'conversion', { send_to: 'AW-18498189434/kXpWCIDCtZQdEPrwz_RE' });
+      } else if (h.indexOf('wa.me/') > -1) gtag('event', 'click_whatsapp');
     }, true);
   </script>`;
 
@@ -84,6 +91,7 @@ const header = `
       <a href="/#siguranta">Siguranță</a>
       <a href="/#intrebari">Întrebări</a>
     </nav>
+    <a class="hd-wa" href="${WA}" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
     <a class="hd-tel" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i><span>${TEL_TXT}</span></a>
   </div>
 </header>
@@ -100,6 +108,7 @@ export function footer(prefix = "/") {
     <div class="ft-col">
       <p class="ft-h">Contact BRO Transport</p>
       <a href="tel:${TEL}"><i class="bi bi-telephone"></i> ${TEL_TXT}</a>
+      <a href="${WA}" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp</a>
       <a href="https://www.facebook.com/optimbro.88/" target="_blank" rel="noopener"><i class="bi bi-facebook"></i> Facebook</a>
       <a href="https://www.instagram.com/optimbrotransport/" target="_blank" rel="noopener"><i class="bi bi-instagram"></i> Instagram</a>
     </div>
@@ -118,6 +127,7 @@ ${allLinks.map((l) => `      <a href="${prefix}${l.slug}">${l.label}</a>`).join(
     <a href="${prefix}termeni-si-conditii">Termeni și condiții</a>
     <a href="${prefix}politica-confidentialitate">Politica de confidențialitate</a>
     <a href="${prefix}cookies">Politica de cookies</a>
+    <button type="button" data-cookie-settings>Setări cookies</button>
     <a class="ft-anpc" href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener nofollow">ANPC – Soluționarea alternativă a litigiilor</a>
   </div>
   <div class="wrap ft-copy">© <span id="y">2026</span> BRO Transport International</div>
@@ -126,10 +136,12 @@ ${allLinks.map((l) => `      <a href="${prefix}${l.slug}">${l.label}</a>`).join(
 }
 
 const dock = `
-<div class="dock dock-one" aria-label="Contact rapid">
-  <a class="dock-call" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i> Sună acum: ${TEL_TXT}</a>
+<div class="dock" aria-label="Contact rapid">
+  <a class="dock-call" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i> Sună</a>
+  ${waBtn("dock-wa")}
 </div>
 <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+<script src="/assets/js/consent.js?v=20261014" defer></script>
 </body>
 </html>
 `;
@@ -163,10 +175,11 @@ const end = `
     <div class="wrap end-in">
       <div>
         <h2>Vrei prețul pentru cursa ta?</h2>
-        <p>Sună acum. Afli pe loc locul liber, prețul și ora la care trecem pe la tine.</p>
+        <p>Sună sau scrie-ne pe WhatsApp. Afli locul liber, prețul și ora la care trecem pe la tine.</p>
       </div>
       <div class="end-btns">
         <a class="btn btn-dark" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i> ${TEL_TXT}</a>
+        ${waBtn()}
       </div>
     </div>
   </section>
@@ -197,8 +210,11 @@ function page(p) {
       <div>
         <h1>${p.h1}</h1>
         <p class="lead">${p.lead}</p>
-        <a class="btn btn-or" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i> Sună: ${TEL_TXT}</a>
-        <p class="hint">Afli prețul și prima plecare disponibilă direct la telefon.</p>
+        <div class="pg-cta">
+          <a class="btn btn-or" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i> Sună: ${TEL_TXT}</a>
+          ${waBtn()}
+        </div>
+        <p class="hint">Afli prețul și prima plecare disponibilă la telefon sau pe WhatsApp.</p>
       </div>
       <img src="${p.img}" alt="${esc(p.imgAlt)}" width="${p.imgW}" height="${p.imgH}" fetchpriority="high">
     </div>
@@ -215,9 +231,10 @@ ${p.faq.map(([q, a], i) => `          <details${i === 0 ? " open" : ""}><summary
         </div>
       </article>
       <aside class="side" aria-label="Rezervare">
-        <p class="side-h">Rezervă la telefon</p>
+        <p class="side-h">Rezervă acum</p>
         <p>Ne spui de unde pleci, unde mergi și în ce zi. Îți confirmăm locul și prețul pe loc.</p>
         <a class="btn btn-or" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i> ${TEL_TXT}</a>
+        ${waBtn("btn btn-wa side-wa")}
         <ul>
           <li><a href="/">← Pagina principală</a></li>
 ${others.map((l) => `          <li><a href="/${l.slug}">${l.label}</a></li>`).join("\n")}
@@ -279,7 +296,7 @@ function notFound() {
   <div class="wrap">
     <h1>Pagina asta nu mai există</h1>
     <p>Poate s-a mutat sau linkul e greșit. Uite unde poți merge mai departe:</p>
-    <p><a class="btn btn-or" href="/"><i class="bi bi-house-door-fill"></i> Pagina principală</a> &nbsp; <a class="btn btn-dark" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i> ${TEL_TXT}</a></p>
+    <p><a class="btn btn-or" href="/"><i class="bi bi-house-door-fill"></i> Pagina principală</a> &nbsp; <a class="btn btn-dark" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i> ${TEL_TXT}</a> &nbsp; ${waBtn()}</p>
     <div class="rt-grid">
 ${allLinks.map((l) => `      <a class="rt" href="/${l.slug}"><b>${l.label}</b><span>${l.sub}</span></a>`).join("\n")}
     </div>
