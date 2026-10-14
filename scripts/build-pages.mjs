@@ -1,0 +1,316 @@
+// Generează paginile statice (rute, servicii, legale, 404) din șablonul comun.
+// Rulare: node scripts/build-pages.mjs  → scrie fișierele .html în rădăcina proiectului.
+import { writeFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
+import { routes, services } from "./pages-content.mjs";
+import { legal } from "./pages-legal.mjs";
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+const SITE = "https://www.brotransport.ro";
+const TEL = "+40790752888";
+const TEL_TXT = "0790 752 888";
+const ORG_ID = SITE + "/#organizatie";
+
+export const allLinks = [...routes, ...services].map((p) => ({ slug: p.slug, label: p.short, sub: p.sub }));
+
+const esc = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+const strip = (s) => s.replace(/<[^>]+>/g, "");
+
+const gtag = `  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18498189434"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18498189434');
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="tel:"]');
+      if (!a) return;
+      gtag('event', 'click_telefon');
+      gtag('event', 'conversion', { send_to: 'AW-18498189434/kXpWCIDCtZQdEPrwz_RE' });
+    }, true);
+  </script>`;
+
+function head({ title, desc, path, img = "/img/og.jpg", imgAlt = "Microbuz BRO Transport International", jsonld = [], noindex = false }) {
+  const url = SITE + path;
+  return `<!DOCTYPE html>
+<html lang="ro">
+<head>
+${gtag}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>${esc(title)}</title>
+  <meta name="description" content="${esc(desc)}">
+${noindex ? '  <meta name="robots" content="noindex">\n' : ""}  <meta name="theme-color" content="#F26B0F">
+  <link rel="canonical" href="${url}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BRO Transport International">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:url" content="${url}">
+  <meta property="og:title" content="${esc(title)}">
+  <meta property="og:description" content="${esc(desc)}">
+  <meta property="og:image" content="${SITE}${img}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="${esc(imgAlt)}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${esc(title)}">
+  <meta name="twitter:description" content="${esc(desc)}">
+  <meta name="twitter:image" content="${SITE}${img}">
+  <link rel="icon" href="/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/css/site.css?v=20261014" rel="stylesheet">
+${jsonld.map((j) => `  <script type="application/ld+json">\n${JSON.stringify(j, null, 2)}\n  </script>`).join("\n")}
+</head>
+<body>
+`;
+}
+
+const header = `
+<header class="hd">
+  <div class="wrap hd-in">
+    <a href="/" class="hd-logo"><img src="/img/logo.webp" alt="BRO Transport International – pagina principală" width="630" height="222"></a>
+    <nav class="hd-nav" aria-label="Meniu">
+      <a href="/#servicii">Servicii</a>
+      <a href="/#rute">Rute</a>
+      <a href="/#masini">Mașini</a>
+      <a href="/#siguranta">Siguranță</a>
+      <a href="/#intrebari">Întrebări</a>
+    </nav>
+    <a class="hd-tel" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i><span>${TEL_TXT}</span></a>
+  </div>
+</header>
+`;
+
+export function footer(prefix = "/") {
+  return `
+<footer class="ft">
+  <div class="wrap ft-in">
+    <div class="ft-brand">
+      <p class="ft-name">BRO Transport International</p>
+      <p>Transport persoane, colete și mașini pe platformă. România – Austria – Germania – Olanda – Belgia, de la adresă la adresă.</p>
+    </div>
+    <div class="ft-col">
+      <p class="ft-h">Contact BRO Transport</p>
+      <a href="tel:${TEL}"><i class="bi bi-telephone"></i> ${TEL_TXT}</a>
+      <a href="https://www.facebook.com/optimbro.88/" target="_blank" rel="noopener"><i class="bi bi-facebook"></i> Facebook</a>
+      <a href="https://www.instagram.com/optimbrotransport/" target="_blank" rel="noopener"><i class="bi bi-instagram"></i> Instagram</a>
+    </div>
+    <div class="ft-col">
+      <p class="ft-h">Rute și servicii</p>
+${allLinks.map((l) => `      <a href="${prefix}${l.slug}">${l.label}</a>`).join("\n")}
+    </div>
+    <div class="ft-col">
+      <p class="ft-h">Altă firmă: transport marfă în țară</p>
+      <a href="https://optimbro.ro/" target="_blank" rel="noopener">OptimBro Transport</a>
+      <a href="tel:+40725228888">0725 22 88 88</a>
+      <span class="ft-note">Doar pentru marfă în România. Pentru persoane, colete și mașini în Europa sună la ${TEL_TXT}.</span>
+    </div>
+  </div>
+  <div class="wrap ft-legal">
+    <a href="${prefix}termeni-si-conditii">Termeni și condiții</a>
+    <a href="${prefix}politica-confidentialitate">Politica de confidențialitate</a>
+    <a href="${prefix}cookies">Politica de cookies</a>
+    <a class="ft-anpc" href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener nofollow">ANPC – Soluționarea alternativă a litigiilor</a>
+  </div>
+  <div class="wrap ft-copy">© <span id="y">2026</span> BRO Transport International</div>
+</footer>
+`;
+}
+
+const dock = `
+<div class="dock dock-one" aria-label="Contact rapid">
+  <a class="dock-call" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i> Sună acum: ${TEL_TXT}</a>
+</div>
+<script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
+`;
+
+function crumbs(items) {
+  return `
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="wrap">
+    <ol>
+${items.map((it, i) => (i < items.length - 1 ? `      <li><a href="${it.path}">${it.name}</a></li>` : `      <li aria-current="page">${it.name}</li>`)).join("\n")}
+    </ol>
+  </div>
+</nav>
+`;
+}
+
+const crumbLd = (items) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: items.map((it, i) => ({ "@type": "ListItem", position: i + 1, name: it.name, item: SITE + it.path })),
+});
+
+const faqLd = (faq) => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: strip(a) } })),
+});
+
+const end = `
+  <section class="end">
+    <div class="wrap end-in">
+      <div>
+        <h2>Vrei prețul pentru cursa ta?</h2>
+        <p>Sună acum. Afli pe loc locul liber, prețul și ora la care trecem pe la tine.</p>
+      </div>
+      <div class="end-btns">
+        <a class="btn btn-dark" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i> ${TEL_TXT}</a>
+      </div>
+    </div>
+  </section>
+`;
+
+function page(p) {
+  const path = "/" + p.slug;
+  const items = [{ name: "Acasă", path: "/" }, { name: p.crumb, path }];
+  const service = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: p.serviceName,
+    serviceType: p.serviceType,
+    url: SITE + path,
+    description: p.desc,
+    provider: { "@type": "Organization", "@id": ORG_ID, name: "BRO Transport International", url: SITE + "/", telephone: TEL },
+    areaServed: p.area.map((n) => ({ "@type": "Country", name: n })),
+  };
+  const others = allLinks.filter((l) => l.slug !== p.slug);
+  return (
+    head({ title: p.title, desc: p.desc, path, imgAlt: p.imgAlt, jsonld: [service, faqLd(p.faq), crumbLd(items)] }) +
+    header +
+    crumbs(items) +
+    `
+<main>
+  <section class="pg-hero">
+    <div class="wrap pg-hero-in">
+      <div>
+        <h1>${p.h1}</h1>
+        <p class="lead">${p.lead}</p>
+        <a class="btn btn-or" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i> Sună: ${TEL_TXT}</a>
+        <p class="hint">Afli prețul și prima plecare disponibilă direct la telefon.</p>
+      </div>
+      <img src="${p.img}" alt="${esc(p.imgAlt)}" width="${p.imgW}" height="${p.imgH}" fetchpriority="high">
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap pg-body">
+      <article class="prose">
+${p.body.trim()}
+
+        <h2>Întrebări frecvente</h2>
+        <div class="faq">
+${p.faq.map(([q, a], i) => `          <details${i === 0 ? " open" : ""}><summary>${q}</summary><p>${a}</p></details>`).join("\n")}
+        </div>
+      </article>
+      <aside class="side" aria-label="Rezervare">
+        <p class="side-h">Rezervă la telefon</p>
+        <p>Ne spui de unde pleci, unde mergi și în ce zi. Îți confirmăm locul și prețul pe loc.</p>
+        <a class="btn btn-or" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i> ${TEL_TXT}</a>
+        <ul>
+          <li><a href="/">← Pagina principală</a></li>
+${others.map((l) => `          <li><a href="/${l.slug}">${l.label}</a></li>`).join("\n")}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="sec sec-grey">
+    <div class="wrap">
+      <div class="sec-hd">
+        <h2>Alte rute și servicii BRO</h2>
+        <p>Aceeași echipă, aceleași mașini, de la adresă la adresă.</p>
+      </div>
+      <div class="rt-grid">
+${others.map((l) => `        <a class="rt" href="/${l.slug}"><b>${l.label}</b><span>${l.sub}</span></a>`).join("\n")}
+      </div>
+    </div>
+  </section>
+${end}
+</main>
+` +
+    footer() +
+    dock
+  );
+}
+
+function legalPage(p) {
+  const path = "/" + p.slug;
+  const items = [{ name: "Acasă", path: "/" }, { name: p.crumb, path }];
+  return (
+    head({ title: p.title, desc: p.desc, path, jsonld: [crumbLd(items)] }) +
+    header +
+    crumbs(items) +
+    `
+<main class="legal">
+  <section class="sec">
+    <div class="wrap">
+      <article class="prose">
+        <h1>${p.h1}</h1>
+        <p><em>Ultima actualizare: ${p.updated}</em></p>
+${p.body.trim()}
+      </article>
+    </div>
+  </section>
+</main>
+` +
+    footer() +
+    dock
+  );
+}
+
+function notFound() {
+  return (
+    head({ title: "Pagina nu există | BRO Transport International", desc: "Pagina căutată nu există. Vezi rutele BRO Transport sau sună la 0790 752 888.", path: "/404", noindex: true }) +
+    header +
+    `
+<main class="nf">
+  <div class="wrap">
+    <h1>Pagina asta nu mai există</h1>
+    <p>Poate s-a mutat sau linkul e greșit. Uite unde poți merge mai departe:</p>
+    <p><a class="btn btn-or" href="/"><i class="bi bi-house-door-fill"></i> Pagina principală</a> &nbsp; <a class="btn btn-dark" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i> ${TEL_TXT}</a></p>
+    <div class="rt-grid">
+${allLinks.map((l) => `      <a class="rt" href="/${l.slug}"><b>${l.label}</b><span>${l.sub}</span></a>`).join("\n")}
+    </div>
+  </div>
+</main>
+` +
+    footer() +
+    dock
+  );
+}
+
+const out = [];
+for (const p of [...routes, ...services]) {
+  writeFileSync(join(ROOT, p.slug + ".html"), page(p));
+  out.push(p.slug);
+}
+for (const p of legal) {
+  writeFileSync(join(ROOT, p.slug + ".html"), legalPage(p));
+  out.push(p.slug);
+}
+writeFileSync(join(ROOT, "404.html"), notFound());
+
+// sitemap.xml
+const today = new Date().toISOString().slice(0, 10);
+const urls = ["", ...out];
+writeFileSync(
+  join(ROOT, "sitemap.xml"),
+  `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.map((u) => `  <url>\n    <loc>${SITE}/${u}</loc>\n    <lastmod>${today}</lastmod>\n  </url>`).join("\n")}
+</urlset>
+`
+);
+console.log("Generat:", out.length + 1, "pagini + sitemap.xml");

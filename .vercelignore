@@ -1,0 +1,6 @@
+.vercel
+src
+.preview
+scripts
+node_modules
+.git
