@@ -1,24 +1,64 @@
 {
-  "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/index", "destination": "/", "permanent": true }
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:slug(transport-persoane-romania-germania|transport-persoane-romania-austria|transport-persoane-romania-olanda|transport-persoane-romania-belgia|transport-colete-romania-europa|transport-auto-platforma|termeni-si-conditii|politica-confidentialitate|cookies).html",
+      "destination": "/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/:slug(transport-persoane-romania-germania|transport-persoane-romania-austria|transport-persoane-romania-olanda|transport-persoane-romania-belgia|transport-colete-romania-europa|transport-auto-platforma|termeni-si-conditii|politica-confidentialitate|cookies)/",
+      "destination": "/:slug",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/img/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, stale-while-revalidate=86400"
+        }
+      ]
     },
     {
       "source": "/assets/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/:slug(transport-persoane-romania-germania|transport-persoane-romania-austria|transport-persoane-romania-olanda|transport-persoane-romania-belgia|transport-colete-romania-europa|transport-auto-platforma|termeni-si-conditii|politica-confidentialitate|cookies)",
+      "destination": "/:slug.html"
     }
   ]
 }
