@@ -5,6 +5,8 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { routes, services } from "./pages-content.mjs";
 import { legal } from "./pages-legal.mjs";
+import { mkdirSync } from "node:fs";
+import { articles, MAIN } from "./blog/index.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = "https://www.brotransport.ro";
@@ -90,6 +92,7 @@ const header = `
       <a href="/#masini">Mașini</a>
       <a href="/#siguranta">Siguranță</a>
       <a href="/#intrebari">Întrebări</a>
+      <a href="/blog">Blog</a>
     </nav>
     <a class="hd-wa" href="${WA}" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
     <a class="hd-tel" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i><span>${TEL_TXT}</span></a>
@@ -126,6 +129,7 @@ ${allLinks.map((l) => `      <a href="${prefix}${l.slug}">${l.label}</a>`).join(
   <div class="wrap ft-legal">
     <a href="${prefix}termeni-si-conditii">Termeni și condiții</a>
     <a href="${prefix}politica-confidentialitate">Politica de confidențialitate</a>
+    <a href="${prefix}blog">Blog</a>
     <a href="${prefix}cookies">Politica de cookies</a>
     <button type="button" data-cookie-settings>Setări cookies</button>
     <a class="ft-anpc" href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener nofollow">ANPC – Soluționarea alternativă a litigiilor</a>
@@ -318,6 +322,143 @@ for (const p of legal) {
   out.push(p.slug);
 }
 writeFileSync(join(ROOT, "404.html"), notFound());
+
+// ===== Blog =====
+const fmtDate = (d) => new Date(d + "T12:00:00").toLocaleDateString("ro-RO", { day: "numeric", month: "long", year: "numeric" });
+const slugify = (t) => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+function article(a, pub) {
+  const path = "/blog/" + a.slug;
+  const items = [{ name: "Acasă", path: "/" }, { name: "Blog", path: "/blog" }, { name: a.h1, path }];
+  const toc = [];
+  const body = a.body.trim().replace(/<h2>(.*?)<\/h2>/g, (m, t) => {
+    const id = slugify(strip(t));
+    toc.push([id, strip(t)]);
+    return `<h2 id="${id}">${t}</h2>`;
+  });
+  toc.push(["intrebari-frecvente", "Întrebări frecvente"]);
+  const words = (strip(a.intro + " " + a.body) + " " + a.faq.flat().join(" ")).split(/\s+/).filter(Boolean).length;
+  const mins = Math.max(4, Math.round(words / 200));
+  const main = MAIN[a.main];
+  const rel = (a.related || []).map((sl) => pub.find((x) => x.slug === sl)).filter(Boolean);
+  const ld = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: a.h1,
+    description: a.desc,
+    image: SITE + a.img,
+    datePublished: a.date,
+    dateModified: a.modified || a.date,
+    author: { "@type": "Organization", name: "Echipa BRO Transport", url: SITE + "/" },
+    publisher: { "@type": "Organization", "@id": ORG_ID, name: "BRO Transport International", logo: { "@type": "ImageObject", url: SITE + "/img/logo.webp" } },
+    mainEntityOfPage: SITE + path,
+    inLanguage: "ro-RO",
+  };
+  return (
+    head({ title: a.title, desc: a.desc, path, imgAlt: a.imgAlt, jsonld: [ld, faqLd(a.faq), crumbLd(items)] }).replace('<meta property="og:type" content="website">', '<meta property="og:type" content="article">') +
+    header +
+    crumbs(items) +
+    `
+<main>
+  <section class="sec art">
+    <div class="wrap pg-body">
+      <article class="prose">
+        <h1>${a.h1}</h1>
+        <p class="art-meta">Echipa BRO Transport · <time datetime="${a.date}">${fmtDate(a.date)}</time> · ${mins} min de citit</p>
+        <div class="art-answer">${a.intro.trim()}</div>
+        <img class="art-img" src="${a.img}" alt="${esc(a.imgAlt)}" width="${a.imgW}" height="${a.imgH}" fetchpriority="high">
+        <nav class="toc" aria-label="Cuprins">
+          <p class="toc-h">Cuprins</p>
+          <ol>
+${toc.map(([id, t]) => `            <li><a href="#${id}">${t}</a></li>`).join("\n")}
+          </ol>
+        </nav>
+${body}
+
+        <h2 id="intrebari-frecvente">Întrebări frecvente</h2>
+        <div class="faq">
+${a.faq.map(([q, ans], i) => `          <details${i === 0 ? " open" : ""}><summary>${q}</summary><p>${ans}</p></details>`).join("\n")}
+        </div>
+
+        <div class="art-cta">
+          <p class="art-cta-h">Vrei prețul exact pentru cursa ta?</p>
+          <p>Sună sau scrie-ne pe WhatsApp. Îți spunem pe loc locul liber, prețul și ora la care trecem pe la tine.</p>
+          <div class="pg-cta">
+            <a class="btn btn-or" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i> ${TEL_TXT}</a>
+            ${waBtn()}
+          </div>
+        </div>
+      </article>
+      <aside class="side" aria-label="Rezervare">
+        <p class="side-h">${main.label}</p>
+        <p>${main.text}</p>
+        <a class="btn btn-or" href="tel:${TEL}"><i class="bi bi-telephone-fill"></i> ${TEL_TXT}</a>
+        ${waBtn("btn btn-wa side-wa")}
+        <ul>
+          <li><a href="${main.path}">${main.link} →</a></li>
+${rel.map((r) => `          <li><a href="/blog/${r.slug}">${r.h1}</a></li>`).join("\n")}
+          <li><a href="/blog">Toate articolele</a></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+${rel.length ? `
+  <section class="sec sec-grey">
+    <div class="wrap">
+      <div class="sec-hd"><h2>Citește și</h2></div>
+      <div class="rt-grid">
+${rel.map((r) => `        <a class="rt" href="/blog/${r.slug}"><b>${r.h1}</b><span>${r.cardText}</span></a>`).join("\n")}
+        <a class="rt" href="${main.path}"><b>${main.link}</b><span>${main.text}</span></a>
+      </div>
+    </div>
+  </section>` : ""}
+${end}
+</main>
+` +
+    footer() +
+    dock
+  );
+}
+
+function blogIndex(pub) {
+  const path = "/blog";
+  const items = [{ name: "Acasă", path: "/" }, { name: "Blog", path }];
+  const groups = [...new Set(pub.map((a) => a.group))];
+  const ld = { "@context": "https://schema.org", "@type": "Blog", name: "Blog BRO Transport", url: SITE + path, inLanguage: "ro-RO", publisher: { "@id": ORG_ID } };
+  return (
+    head({ title: "Blog: ghiduri de drum, colete și mașini | BRO Transport", desc: "Ghiduri practice pentru drumul România – Germania, Austria, Olanda, Belgia: prețuri, bagaje, colete, mașini aduse pe platformă și sfaturi de drum.", path, jsonld: [ld, crumbLd(items)] }) +
+    header +
+    crumbs(items) +
+    `
+<main>
+  <section class="pg-hero">
+    <div class="wrap">
+      <h1>Blog BRO Transport</h1>
+      <p class="lead">Ghiduri practice pentru drumul dintre România și Austria, Germania, Olanda și Belgia: cum alegi transportul, cum trimiți un colet și cum aduci o mașină acasă.</p>
+    </div>
+  </section>
+${groups.map((g) => `
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-hd"><h2>${g}</h2></div>
+      <div class="rt-grid">
+${pub.filter((a) => a.group === g).map((a) => `        <a class="rt" href="/blog/${a.slug}"><b>${a.h1}</b><span>${a.cardText}</span></a>`).join("\n")}
+      </div>
+    </div>
+  </section>`).join("")}
+${end}
+</main>
+` +
+    footer() +
+    dock
+  );
+}
+
+mkdirSync(join(ROOT, "blog"), { recursive: true });
+const pub = articles.filter((a) => a.published);
+for (const a of pub) writeFileSync(join(ROOT, "blog", a.slug + ".html"), article(a, pub));
+writeFileSync(join(ROOT, "blog", "index.html"), blogIndex(pub));
+out.push("blog", ...pub.map((a) => "blog/" + a.slug));
 
 // sitemap.xml
 const today = new Date().toISOString().slice(0, 10);

@@ -20,6 +20,21 @@
       "source": "/:slug(transport-persoane-romania-germania|transport-persoane-romania-austria|transport-persoane-romania-olanda|transport-persoane-romania-belgia|transport-colete-romania-europa|transport-auto-platforma|termeni-si-conditii|politica-confidentialitate|cookies)/",
       "destination": "/:slug",
       "permanent": true
+    },
+    {
+      "source": "/blog/index.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/index",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:slug([a-z0-9-]+).html",
+      "destination": "/blog/:slug",
+      "permanent": true
     }
   ],
   "headers": [
@@ -59,6 +74,14 @@
     {
       "source": "/:slug(transport-persoane-romania-germania|transport-persoane-romania-austria|transport-persoane-romania-olanda|transport-persoane-romania-belgia|transport-colete-romania-europa|transport-auto-platforma|termeni-si-conditii|politica-confidentialitate|cookies)",
       "destination": "/:slug.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/blog/:slug([a-z0-9-]+)",
+      "destination": "/blog/:slug.html"
     }
   ]
 }
