@@ -1,13 +1,27 @@
 // Toate articolele de blog. Un articol apare pe site doar dacă are published: true.
-// Valurile următoare se adaugă în fișiere noi (a4.mjs, ...) și se importă aici.
+// Valul 1 e în a1–a3; valurile 2–4 (toate cele 72 din plan) sunt în b1–g2.
 import a1 from "./a1.mjs";
 import a2 from "./a2.mjs";
 import a3 from "./a3.mjs";
 import extra1 from "./extra-val1.mjs";
 import extra1b from "./extra-val1b.mjs";
+// Valurile 2–4: fiecare fișier de articole are lângă el un fișier „x” cu secțiuni suplimentare.
+import b1 from "./b1.mjs"; import b1x from "./b1x.mjs";
+import b2 from "./b2.mjs"; import b2x from "./b2x.mjs";
+import c1 from "./c1.mjs"; import c1x from "./c1x.mjs";
+import c2 from "./c2.mjs"; import c2x from "./c2x.mjs";
+import d1 from "./d1.mjs"; import d1x from "./d1x.mjs";
+import d2 from "./d2.mjs"; import d2x from "./d2x.mjs";
+import e1 from "./e1.mjs"; import e1x from "./e1x.mjs";
+import e2 from "./e2.mjs"; import e2x from "./e2x.mjs";
+import f1 from "./f1.mjs"; import f1x from "./f1x.mjs";
+import f2 from "./f2.mjs"; import f2x from "./f2x.mjs";
+import g1 from "./g1.mjs"; import g1x from "./g1x.mjs";
+import g2 from "./g2.mjs"; import g2x from "./g2x.mjs";
 
 const extras = { ...extra1 };
-for (const [k, v] of Object.entries(extra1b)) extras[k] = (extras[k] || "") + v;
+for (const x of [extra1b, b1x, b2x, c1x, c2x, d1x, d2x, e1x, e2x, f1x, f2x, g1x, g2x])
+  for (const [k, v] of Object.entries(x)) extras[k] = (extras[k] || "") + v;
 // Secțiunile suplimentare se pun înaintea ultimei secțiuni H2 din articol.
 const withExtra = (a) => {
   const x = extras[a.slug];
@@ -16,7 +30,7 @@ const withExtra = (a) => {
   return { ...a, body: a.body.slice(0, i) + x.trim() + "\n\n" + a.body.slice(i) };
 };
 
-export const articles = [...a1, ...a2, ...a3].map(withExtra).sort((x, y) => x.n - y.n);
+export const articles = [...a1, ...a2, ...a3, ...b1, ...b2, ...c1, ...c2, ...d1, ...d2, ...e1, ...e2, ...f1, ...f2, ...g1, ...g2].map(withExtra).sort((x, y) => x.n - y.n);
 
 export const MAIN = {
   DE: { path: "/transport-persoane-romania-germania", link: "Transport persoane România – Germania", label: "Spre Germania", text: "Plecări zilnice, de la adresă la adresă, în ambele sensuri." },
