@@ -2,12 +2,12 @@
 <html lang="ro">
 <head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18498189434"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500 });
-    try { if (localStorage.getItem('bro-consent') === 'granted') gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted' }); } catch (e) {}
+    window.broLoadTag = function () { if (window.broTag) return; window.broTag = 1; var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18498189434'; document.head.appendChild(s); };
+    try { if (localStorage.getItem('bro-consent') === 'granted') { gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted' }); broLoadTag(); } } catch (e) {}
     gtag('js', new Date());
     gtag('config', 'AW-18498189434');
     document.addEventListener('click', function (e) {
@@ -44,9 +44,7 @@
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/fonts/fonts.css">
   <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="/assets/css/site.css?v=20261023" rel="stylesheet">
   <script type="application/ld+json">
@@ -335,6 +333,6 @@
   <a class="dock-wa" href="https://wa.me/40790752888?text=Bun%C4%83%20ziua!%20A%C8%99%20dori%20o%20ofert%C4%83%20de%20transport." target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp</a>
 </div>
 <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
-<script src="/assets/js/consent.js?v=20261014" defer></script>
+<script src="/assets/js/consent.js?v=20261023" defer></script>
 </body>
 </html>

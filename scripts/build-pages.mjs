@@ -22,12 +22,12 @@ const esc = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g
 const strip = (s) => s.replace(/<[^>]+>/g, "");
 
 const gtag = `  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18498189434"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500 });
-    try { if (localStorage.getItem('bro-consent') === 'granted') gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted' }); } catch (e) {}
+    window.broLoadTag = function () { if (window.broTag) return; window.broTag = 1; var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18498189434'; document.head.appendChild(s); };
+    try { if (localStorage.getItem('bro-consent') === 'granted') { gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted' }); broLoadTag(); } } catch (e) {}
     gtag('js', new Date());
     gtag('config', 'AW-18498189434');
     document.addEventListener('click', function (e) {
@@ -71,9 +71,7 @@ ${noindex ? '  <meta name="robots" content="noindex">\n' : ""}  <meta name="them
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/fonts/fonts.css">
   <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="/assets/css/site.css?v=20261023" rel="stylesheet">
 ${jsonld.map((j) => `  <script type="application/ld+json">\n${JSON.stringify(j, null, 2)}\n  </script>`).join("\n")}
@@ -145,7 +143,7 @@ const dock = `
   ${waBtn("dock-wa")}
 </div>
 <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
-<script src="/assets/js/consent.js?v=20261014" defer></script>
+<script src="/assets/js/consent.js?v=20261023" defer></script>
 </body>
 </html>
 `;

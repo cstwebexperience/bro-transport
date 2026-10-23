@@ -1,5 +1,5 @@
-// Banner cookies + Google Consent Mode v2. Implicit „denied” (setat în <head>);
-// la „Accept” trimitem consent update „granted”. Alegerea se ține în localStorage.
+// Banner cookies + Google Consent Mode v2 (modul „basic”). Implicit „denied” (setat în <head>),
+// iar scriptul Google se încarcă abia la „Accept” (broLoadTag din <head>). Alegerea se ține în localStorage.
 (function () {
   "use strict";
   var KEY = "bro-consent";
@@ -12,6 +12,7 @@
     var o = {};
     ALL.forEach(function (k) { o[k] = v; });
     gtag("consent", "update", o);
+    if (v === "granted" && typeof window.broLoadTag === "function") window.broLoadTag();
   }
 
   var box;

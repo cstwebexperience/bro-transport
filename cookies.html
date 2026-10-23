@@ -2,12 +2,12 @@
 <html lang="ro">
 <head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18498189434"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500 });
-    try { if (localStorage.getItem('bro-consent') === 'granted') gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted' }); } catch (e) {}
+    window.broLoadTag = function () { if (window.broTag) return; window.broTag = 1; var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18498189434'; document.head.appendChild(s); };
+    try { if (localStorage.getItem('bro-consent') === 'granted') { gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted' }); broLoadTag(); } } catch (e) {}
     gtag('js', new Date());
     gtag('config', 'AW-18498189434');
     document.addEventListener('click', function (e) {
@@ -44,9 +44,7 @@
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/fonts/fonts.css">
   <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="/assets/css/site.css?v=20261023" rel="stylesheet">
   <script type="application/ld+json">
@@ -102,18 +100,18 @@
     <div class="wrap">
       <article class="prose">
         <h1>Politica de cookies</h1>
-        <p><em>Ultima actualizare: 14 octombrie 2026</em></p>
+        <p><em>Ultima actualizare: 23 octombrie 2026</em></p>
 <p>Cookie-urile sunt fișiere mici pe care un site le salvează în browserul tău. Mai jos găsești ce folosește site-ul www.brotransport.ro.</p>
 
         <h2>1. Cookie-uri de măsurare a reclamelor (Google Ads)</h2>
         <p>Folosim eticheta Google (gtag.js) a serviciului Google Ads ca să aflăm câte persoane ne sună după ce au văzut o reclamă de-a noastră. Eticheta poate seta cookie-uri precum <code>_gcl_au</code> și poate transmite către Google informații despre vizită și despre apăsarea butonului de telefon. Detalii: <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener nofollow">politica Google privind publicitatea</a>.</p>
-        <p><strong>Aceste cookie-uri se activează doar dacă apeși „Accept”</strong> în caseta afișată la prima vizită. Până atunci, eticheta funcționează în modul de consimțământ Google (Consent Mode v2) cu toate opțiunile pe „refuzat”, fără cookie-uri de publicitate. Îți poți schimba oricând alegerea din linkul <a href="#" data-cookie-settings>Setări cookies</a>, aflat și în subsolul fiecărei pagini.</p>
+        <p><strong>Aceste cookie-uri se activează doar dacă apeși „Accept”</strong> în caseta afișată la prima vizită. Până atunci, eticheta Google nici nu se încarcă: browserul tău nu se conectează la Google și nu se setează niciun cookie de publicitate. Îți poți schimba oricând alegerea din linkul <a href="#" data-cookie-settings>Setări cookies</a>, aflat și în subsolul fiecărei pagini.</p>
 
         <h2>2. Stocare locală necesară</h2>
         <p>Site-ul folosește <code>sessionStorage</code> ca să țină minte, pe durata vizitei, că ai închis caseta „Plecări zilnice”, și <code>localStorage</code> ca să țină minte alegerea ta despre cookie-uri (cheia <code>bro-consent</code>). Acestea nu sunt folosite pentru publicitate.</p>
 
         <h2>3. Servicii externe</h2>
-        <p>Fonturile sunt încărcate de la Google Fonts. Pentru asta, browserul tău se conectează la serverele Google.</p>
+        <p>Fonturile sunt servite direct de pe serverul nostru, nu de la Google Fonts, deci deschiderea paginilor nu trimite adresa ta IP către Google.</p>
 
         <h2>4. Cum controlezi cookie-urile</h2>
         <p>Poți șterge sau bloca cookie-urile din setările browserului. Poți dezactiva reclamele personalizate Google din <a href="https://adssettings.google.com" target="_blank" rel="noopener nofollow">setările de reclame Google</a>.</p>
@@ -170,6 +168,6 @@
   <a class="dock-wa" href="https://wa.me/40790752888?text=Bun%C4%83%20ziua!%20A%C8%99%20dori%20o%20ofert%C4%83%20de%20transport." target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp</a>
 </div>
 <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
-<script src="/assets/js/consent.js?v=20261014" defer></script>
+<script src="/assets/js/consent.js?v=20261023" defer></script>
 </body>
 </html>
