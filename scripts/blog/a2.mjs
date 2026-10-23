@@ -337,6 +337,9 @@ export default [
 <h2>De ce iese mai ieftin în grup</h2>
 <p>Un microbuz are un număr limitat de locuri, de exemplu 8+1, iar o mare parte din costul unei curse e același indiferent dacă transportă o persoană sau mai multe care merg în aceeași direcție. Când mai mulți oameni pleacă din același loc și ajung în același loc, cursa e mai simplu de organizat. Asta se vede în prețul pe persoană.</p>
 
+<h2>Masă gratuită pentru grupurile de peste 6 persoane</h2>
+<p>Dacă sunteți un grup de peste 6 persoane, pe lângă prețul mai bun pe persoană primiți și o masă gratuită. O puteți lua fie la tur, fie la retur, cum vă convine. Spuneți-ne la rezervare câți sunteți, ca să o includem în ofertă.</p>
+
 <h2>Ce înseamnă „grup” la noi</h2>
 <div class="tbl"><table>
 <thead><tr><th>Tip de grup</th><th>Situație frecventă</th><th>Sfat</th></tr></thead>
@@ -385,7 +388,7 @@ export default [
 </ol>
 <p>Mergem spre Germania, Austria, Olanda și Belgia, cu plecări zilnice. Vezi și <a href="/blog/cat-costa-transport-persoane-romania-germania">ce influențează prețul spre Germania</a> și pagina de <a href="/transport-persoane-romania-germania">transport persoane România – Germania</a>.</p>`,
     faq: [
-      ["Aveți reducere pentru grupuri?", "Da. Pentru grupuri, familie, colegi sau prieteni, prețul pe persoană e mai mic. Spune-ne câți sunteți și îți facem o ofertă."],
+      ["Aveți reducere pentru grupuri?", "Da. Pentru grupuri, familie, colegi sau prieteni, prețul pe persoană e mai mic. Spune-ne câți sunteți și îți facem o ofertă. Grupurile de peste 6 persoane primesc și o masă gratuită, la tur sau la retur."],
       ["Ne puteți lua din adrese diferite?", "Da, lucrăm de la adresă la adresă. Spuneți toate adresele de la început, ca să planificăm cursa."],
       ["Mergem toți la aceeași cazare. Ne lăsați acolo?", "Da, vă lăsăm la adresa de la destinație."],
       ["Avem multe bagaje. Încap?", "Avem portbagaj și remorci acoperite. Spuneți de la început ce bagaje aveți."],
