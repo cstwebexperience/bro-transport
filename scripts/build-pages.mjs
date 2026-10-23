@@ -75,7 +75,7 @@ ${noindex ? '  <meta name="robots" content="noindex">\n' : ""}  <meta name="them
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/assets/css/site.css?v=20261014" rel="stylesheet">
+  <link href="/assets/css/site.css?v=20261023" rel="stylesheet">
 ${jsonld.map((j) => `  <script type="application/ld+json">\n${JSON.stringify(j, null, 2)}\n  </script>`).join("\n")}
 </head>
 <body>

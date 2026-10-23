@@ -66,7 +66,7 @@ export const routes = [
       ["Mă luați de acasă sau trebuie să vin într-un punct de întâlnire?", "Te luăm de acasă. Facem transport de la adresă la adresă, atât la plecarea din România, cât și la sosirea în Germania. Șoferul te sună înainte să ajungă."],
       ["Cât de des aveți curse spre Germania?", "Avem plecări zilnice pe ruta România – Austria – Germania – Olanda – Belgia, în ambele sensuri. Sună la 0790 752 888 și îți spunem prima plecare cu loc liber."],
       ["Pot face rezervare și pentru întoarcerea din Germania în România?", "Da. Mergem în ambele sensuri, așa că poți rezerva și cursa de întoarcere din Germania până la adresa ta din România."],
-      ["Aveți reducere dacă mergem mai mulți?", "Da. Pentru grupuri, familie, prieteni sau colegi, prețul pe persoană e mai mic. Spune-ne câți sunteți și îți facem o ofertă pentru grup. Grupurile de peste 6 persoane primesc și o masă gratuită, la tur sau la retur."],
+      ["Aveți reducere dacă mergem mai mulți?", "Da. Pentru grupuri, familie, prieteni sau colegi, prețul pe persoană e mai mic. Spune-ne câți sunteți și îți facem o ofertă pentru grup. <strong class='meal'>Grupurile de peste 6 persoane primesc și o masă gratuită, la tur sau la retur.</strong>"],
     ],
   },
   {
@@ -119,7 +119,7 @@ export const routes = [
         <!-- TODO: reguli copii (scaun auto) și animale de companie. -->
 
         <h2>Cât costă transportul România – Austria</h2>
-        <p>Prețul depinde de adresa de plecare, de adresa din Austria, de dată și de numărul de persoane. Îl afli exact la telefon, <strong>înainte de plecare</strong>, fără surprize la final. Pentru grupuri, familii, colegi de muncă sau prieteni, prețul pe persoană e mai mic. Grupurile de peste 6 persoane primesc și o masă gratuită, la tur sau la retur.</p>
+        <p>Prețul depinde de adresa de plecare, de adresa din Austria, de dată și de numărul de persoane. Îl afli exact la telefon, <strong>înainte de plecare</strong>, fără surprize la final. Pentru grupuri, familii, colegi de muncă sau prieteni, prețul pe persoană e mai mic. <strong class='meal'>Grupurile de peste 6 persoane primesc și o masă gratuită, la tur sau la retur.</strong></p>
         <!-- TODO: modalități de plată acceptate. -->
 
         <h2>Microbuz sau autocar?</h2>
@@ -202,7 +202,7 @@ export const routes = [
     faq: [
       ["Pot dormi pe drumul spre Olanda?", "Da. Renault Master are pat pentru dormit, iar în celelalte microbuze ai scaune comode cu loc lejer pentru picioare."],
       ["Aveți curse și din Olanda spre România?", "Da, mergem în ambele sensuri. Poți rezerva și întoarcerea din Olanda până la adresa ta din România."],
-      ["Mergem mai mulți colegi la același loc de muncă. Avem reducere?", "Da. Pentru grupuri prețul pe persoană e mai mic. Sună-ne, spune-ne câți sunteți și adresa, și îți facem o ofertă. Grupurile de peste 6 persoane primesc și o masă gratuită, la tur sau la retur."],
+      ["Mergem mai mulți colegi la același loc de muncă. Avem reducere?", "Da. Pentru grupuri prețul pe persoană e mai mic. Sună-ne, spune-ne câți sunteți și adresa, și îți facem o ofertă. <strong class='meal'>Grupurile de peste 6 persoane primesc și o masă gratuită, la tur sau la retur.</strong>"],
       ["Cum aflu prețul pentru Olanda?", "Suni la 0790 752 888. Prețul depinde de adresa de plecare, de adresa din Olanda și de dată și îl afli înainte de plecare."],
       ["Pot lua mai multe bagaje?", "Da. Avem portbagaj și remorci acoperite cu prelată. Anunță-ne la rezervare ce bagaje ai, ca să-ți păstrăm loc."],
     ],
@@ -248,7 +248,7 @@ export const routes = [
         <!-- TODO: bagaje incluse, reguli copii și animale de companie. -->
 
         <h2>Prețul</h2>
-        <p>Prețul pentru Belgia depinde de adresa de plecare, de adresa de destinație, de dată și de numărul de persoane. Îl afli la telefon, <strong>înainte de plecare</strong>, și rămâne cel stabilit. Pentru grupuri prețul pe persoană e mai mic. Grupurile de peste 6 persoane primesc și o masă gratuită, la tur sau la retur.</p>
+        <p>Prețul pentru Belgia depinde de adresa de plecare, de adresa de destinație, de dată și de numărul de persoane. Îl afli la telefon, <strong>înainte de plecare</strong>, și rămâne cel stabilit. Pentru grupuri prețul pe persoană e mai mic. <strong class='meal'>Grupurile de peste 6 persoane primesc și o masă gratuită, la tur sau la retur.</strong></p>
         <!-- TODO: modalități de plată. -->
 
         <h2>Cine ne alege pentru Belgia</h2>

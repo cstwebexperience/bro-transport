@@ -612,3 +612,6 @@ body.ck-on .daily { visibility: hidden; }
   .prose table { font-size: 14px; }
   .prose th, .prose td { padding: 8px; }
 }
+
+/* Ofertă masă gratuită la grupuri */
+.meal { color: var(--or); font-weight: 700; }
